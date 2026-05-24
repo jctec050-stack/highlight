@@ -1,0 +1,451 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dadada",
+                        "on-primary-fixed-variant": "#474747",
+                        "secondary": "#5d5f5f",
+                        "surface": "#f9f9f9",
+                        "primary-container": "#1b1b1b",
+                        "on-tertiary-fixed-variant": "#464747",
+                        "on-secondary-fixed": "#1a1c1c",
+                        "inverse-primary": "#c6c6c6",
+                        "on-surface": "#1a1c1c",
+                        "surface-container-low": "#f3f3f3",
+                        "surface-tint": "#5e5e5e",
+                        "on-error": "#ffffff",
+                        "on-tertiary-container": "#848484",
+                        "primary-fixed": "#e2e2e2",
+                        "surface-container-lowest": "#ffffff",
+                        "surface-container": "#eeeeee",
+                        "on-secondary-container": "#636565",
+                        "error-container": "#ffdad6",
+                        "on-secondary-fixed-variant": "#454747",
+                        "inverse-surface": "#2f3131",
+                        "on-background": "#1a1c1c",
+                        "surface-container-high": "#e8e8e8",
+                        "outline": "#7e7576",
+                        "primary": "#000000",
+                        "surface-container-highest": "#e2e2e2",
+                        "secondary-fixed-dim": "#c6c7c6",
+                        "on-error-container": "#93000a",
+                        "background": "#f9f9f9",
+                        "secondary-fixed": "#e2e3e2",
+                        "secondary-container": "#e2e3e2",
+                        "on-primary": "#ffffff",
+                        "on-primary-container": "#848484",
+                        "surface-variant": "#e2e2e2",
+                        "outline-variant": "#cfc4c5",
+                        "tertiary-fixed": "#e3e2e2",
+                        "inverse-on-surface": "#f1f1f1",
+                        "tertiary-fixed-dim": "#c7c6c6",
+                        "surface-bright": "#f9f9f9",
+                        "on-primary-fixed": "#1b1b1b",
+                        "tertiary": "#000000",
+                        "on-tertiary": "#ffffff",
+                        "primary-fixed-dim": "#c6c6c6",
+                        "on-surface-variant": "#4c4546",
+                        "on-secondary": "#ffffff",
+                        "tertiary-container": "#1b1c1c",
+                        "error": "#ba1a1a",
+                        "on-tertiary-fixed": "#1b1c1c"
+                    },
+                    "borderRadius": {
+                        "DEFAULT": "0.25rem",
+                        "lg": "0.5rem",
+                        "xl": "0.75rem",
+                        "full": "9999px"
+                    },
+                    "spacing": {
+                        "gutter": "32px",
+                        "container-max": "1280px",
+                        "margin-mobile": "24px",
+                        "margin-desktop": "64px",
+                        "unit": "8px",
+                        "section-gap": "160px"
+                    },
+                    "fontFamily": {
+                        "label-caps": ["Inter"],
+                        "footer-tiny": ["Inter"],
+                        "display-xl-mobile": ["Inter"],
+                        "body-md": ["Inter"],
+                        "headline-md": ["Inter"],
+                        "body-lg": ["Inter"],
+                        "headline-lg": ["Inter"],
+                        "display-xl": ["Inter"]
+                    },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "footer-tiny": ["10px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                        "display-xl-mobile": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "display-xl": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary selection:text-on-primary">
+<!-- TopAppBar -->
+<header class="fixed top-0 w-full h-20 bg-surface border-b border-primary z-50 transition-transform duration-300" id="main-nav">
+<div class="flex justify-between items-center px-gutter max-w-container-max mx-auto h-full">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer lg:hidden" data-icon="menu">menu</span>
+<div class="text-headline-md tracking-tighter text-primary flex items-baseline">
+<span class="bold-font">high</span><span class="thin-font">light</span>
+</div>
+</div>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="font-label-caps text-label-caps text-primary border-b-2 border-primary h-full flex items-center hover:opacity-100 transition-opacity duration-200" href="#inicio">INICIO</a>
+<div class="hl-nav-dropdown relative h-full flex items-center" data-dropdown>
+<button aria-expanded="false" aria-haspopup="true" class="font-label-caps text-label-caps text-on-surface-variant opacity-70 h-full flex items-center gap-2 hover:opacity-100 transition-opacity duration-200 bg-transparent border-0 p-0" data-dropdown-trigger type="button"><span>SERVICIOS</span><span aria-hidden="true" class="text-[10px] leading-none">▾</span></button>
+<div class="hl-nav-dropdown__menu">
+<a class="hl-nav-dropdown__link" href="highlight-marketing.html">Marketing</a>
+<a class="hl-nav-dropdown__link" href="highlight-pr.html">PR</a>
+<a class="hl-nav-dropdown__link" href="highlight-academy.html">Academy</a>
+</div>
+</div>
+<a class="font-label-caps text-label-caps text-on-surface-variant opacity-70 h-full flex items-center hover:opacity-100 transition-opacity duration-200" href="#clientes">CLIENTES</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant opacity-70 h-full flex items-center hover:opacity-100 transition-opacity duration-200" href="#nosotros">NOSOTROS</a>
+</nav>
+<div class="flex items-center">
+<a class="font-label-caps text-label-caps text-primary border border-primary px-6 py-2 active:scale-95 transition-all duration-150" href="#contact">Contacto</a>
+</div>
+</div>
+</header>
+<main class="pt-20">
+<!-- Hero Section: Keep White -->
+<section class="min-h-[795px] bg-surface flex flex-col justify-center px-gutter max-w-container-max mx-auto border-x border-outline-variant" id="inicio">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-end">
+<div class="lg:col-span-8">
+<h1 class="font-display-xl text-display-xl lg:text-[140px] leading-[0.9] tracking-tighter mb-12 text-primary">
+<span class="bold-font block">ELEVAMOS</span>
+<span class="thin-font block">tu marca</span>
+</h1>
+<p class="font-body-lg text-body-lg max-w-xl text-on-surface-variant mb-12">
+                        Creemos que destacar no es cuestión de volumen, sino de claridad. Por eso trabajamos para que cada proyecto encuentre su luz propia, un diferencial auténtico que lo posicione con fuerza en el mercado.
+                        <br><br>
+                        Nos mueve la convicción de que cuando una marca logra resaltar desde su esencia, conecta más profundo, inspira más fuerte y crece de manera sostenible.
+                    </p>
+<div class="flex gap-4">
+<a class="bg-primary text-on-primary px-10 py-5 font-label-caps text-label-caps tracking-widest transition-letter-spacing duration-300 inline-flex items-center" href="#servicios">
+                            VER SERVICIOS
+                        </a>
+</div>
+</div>
+<div class="lg:col-span-4 hidden lg:block border-l border-primary p-gutter">
+<div class="font-label-caps text-label-caps text-primary mb-4">EST.2023</div>
+<p class="text-footer-tiny font-footer-tiny uppercase tracking-widest text-on-surface-variant leading-relaxed">
+                        En un mundo donde las marcas compiten por llamar la atención, en Highlight elegimos un camino diferente: no hacemos ruido, iluminamos.
+                    </p>
+</div>
+</div>
+</section>
+<!-- Services Section: Switch to Black -->
+<section class="bg-primary text-on-primary py-section-gap" id="servicios">
+<div class="px-gutter max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-20 gap-8 border-b border-on-primary/20 pb-8">
+<h2 class="font-headline-lg text-headline-lg uppercase flex items-center gap-4">
+<span class="bold-font">NUESTROS</span><span class="thin-font">SERVICIOS</span>
+</h2>
+
+</div>
+<div class="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-l border-on-primary/20">
+<!-- Service Card 1 -->
+<div class="border-r border-b border-on-primary/20 p-gutter flex flex-col justify-between group hover:bg-surface transition-colors duration-500 min-h-[400px]" id="servicio-highlight">
+<div class="w-full h-28 flex items-center justify-center">
+<div class="relative inline-block scale-150 origin-center leading-none text-on-primary group-hover:text-primary transition-colors duration-500">
+<div class="flex items-baseline tracking-tight">
+<span class="bold-font text-[40px] leading-none">high</span><span class="thin-font text-[40px] leading-none">light</span>
+</div>
+<div class="absolute right-0 top-full mt-1 text-[7px] font-footer-tiny font-bold tracking-[0.12em] opacity-90 whitespace-nowrap">marketing &amp; co.</div>
+</div>
+</div>
+<div>
+<p class="text-body-md text-on-primary/70 group-hover:text-on-surface-variant transition-colors duration-500">
+                                Impulsamos el progreso de empresas que mueven al país, innovación diseñada para lideres de todos los sectories.
+                            </p>
+<div class="mt-6 flex justify-end">
+<a class="inline-flex items-center gap-2 font-label-caps text-label-caps text-on-primary/70 group-hover:text-on-surface-variant transition-colors duration-500 hover:opacity-80 active:scale-95" href="highlight-marketing.html">
+<span>Ver más</span>
+<span class="material-symbols-outlined text-[18px] leading-none" aria-hidden="true">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Service Card 2 -->
+<div class="border-r border-b border-on-primary/20 p-gutter flex flex-col justify-between group hover:bg-surface transition-colors duration-500 min-h-[400px]" id="servicio-pr">
+<div class="w-full h-28 flex items-center justify-center">
+<div class="hl-pr-logo relative inline-flex items-baseline scale-150 origin-center leading-none text-on-primary group-hover:text-primary transition-colors duration-500">
+<span class="hl-pr-logo__high bold-font text-[40px] leading-none">high</span>
+
+<span class="hl-pr-logo__light thin-font text-[40px] leading-none">light</span>
+<span class="ml-2 text-[22px] leading-none font-bold italic relative -top-4">PR</span>
+</div>
+</div>
+<div>
+
+<p class="text-body-md text-on-primary/70 group-hover:text-on-surface-variant transition-colors duration-500">
+                                No solo buscamos que te vean, trabajamos para que te recuerden, construyendo una reputación sólida que abra puertas y cree conexiones reales con tu audiencia ideal.
+                            </p>
+<div class="mt-6 flex justify-end">
+<a class="inline-flex items-center gap-2 font-label-caps text-label-caps text-on-primary/70 group-hover:text-on-surface-variant transition-colors duration-500 hover:opacity-80 active:scale-95" href="highlight-pr.html">
+<span>Ver más</span>
+<span class="material-symbols-outlined text-[18px] leading-none" aria-hidden="true">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+<!-- Service Card 3 -->
+<div class="border-r border-b border-on-primary/20 p-gutter flex flex-col justify-between group hover:bg-surface transition-colors duration-500 min-h-[400px]" id="servicio-academy">
+<div class="w-full h-28 flex items-center justify-center">
+<div class="relative inline-block scale-150 origin-center leading-none text-on-primary group-hover:text-primary transition-colors duration-500">
+<div class="flex items-baseline tracking-tight">
+<span class="bold-font text-[40px] leading-none">high</span><span class="thin-font text-[40px] leading-none">light</span>
+</div>
+<div class="absolute left-1/2 top-full mt-1 -translate-x-1/2 text-[10px] leading-none font-bold tracking-[0.12em] opacity-90 whitespace-nowrap"><span class="italic font-semibold">ACA</span><span class="not-italic font-semibold">DEMY</span></div>
+</div>
+</div>
+<div>
+<h3 class="font-headline-md text-headline-md uppercase mb-4 text-on-primary group-hover:text-primary transition-colors duration-500">
+
+</h3>
+<p class="text-body-md text-on-primary/70 group-hover:text-on-surface-variant transition-colors duration-500">
+                                El camino más corto entre donde estás hoy y donde quieres llegar.<br/>
+                                Aprende con metodologías claras, precisas y sin rodeos<br/>
+                                para convertir tu talento en tu mayor ventaja competitiva.
+                            </p>
+<div class="mt-6 flex justify-end">
+<a class="inline-flex items-center gap-2 font-label-caps text-label-caps text-on-primary/70 group-hover:text-on-surface-variant transition-colors duration-500 hover:opacity-80 active:scale-95" href="highlight-academy.html">
+<span>Ver más</span>
+<span class="material-symbols-outlined text-[18px] leading-none" aria-hidden="true">arrow_forward</span>
+</a>
+</div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Image Quote Section: Switch to White -->
+<section class="bg-surface py-section-gap" id="nosotros">
+<div class="px-gutter max-w-container-max mx-auto border-x border-outline-variant overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
+<div class="relative overflow-hidden aspect-[4/5] bg-surface-container">
+<img alt="Highlight team photo" class="w-full h-full object-cover filter grayscale" data-alt="A photograph of a high-end, minimalist architectural space with sharp geometric lines and vast concrete walls. The lighting is cold and clinical, emphasizing a modern light-mode aesthetic. A single designer piece of furniture sits in the center of the vast grey expanse, creating a sense of luxury and focus. The overall atmosphere is silent, sophisticated, and professional, dominated by a monochromatic palette." src="images/foto.png"/>
+</div>
+<div class="flex flex-col gap-8 text-primary">
+<blockquote class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg leading-tight">
+                            "<span class="font-[400]">Una agencia de marketing deberia construir y prometer</span> <span class="bold-font">perspectiva de valor</span>"
+                        </blockquote>
+<cite class="font-label-caps text-label-caps text-on-surface-variant not-italic border-l-2 border-primary pl-4 py-2">
+<span class="inline-flex items-baseline tracking-tighter text-primary text-[22px] leading-none">
+<span class="bold-font">high</span><span class="thin-font">light</span>
+</span>
+</cite>
+</div>
+</div>
+</div>
+</section>
+<!-- Work Section: Keep Black -->
+<section class="bg-primary text-on-primary py-section-gap" id="clientes">
+<div class="max-w-container-max mx-auto px-gutter">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-20 gap-8 border-b border-on-primary/20 pb-8">
+<h2 class="font-headline-lg text-headline-lg uppercase">
+<span class="bold-font">CLIENTES&nbsp;</span><span class="thin-font">DESTACADOS</span>
+</h2>
+</div>
+<div class="hl-clients-carousel bg-primary border border-primary">
+<div class="hl-clients-carousel__viewport">
+<div class="hl-clients-carousel__track" aria-label="Featured clients">
+<div class="hl-clients-carousel__slide"><img alt="Cliente 1" src="images/cliente%201.png"/></div>
+<div class="hl-clients-carousel__slide"><img alt="Cliente 2" src="images/cliente%202.png"/></div>
+<div class="hl-clients-carousel__slide"><img alt="Cliente 3" src="images/cliente%203.png"/></div>
+<div class="hl-clients-carousel__slide"><img alt="Cliente 4" src="images/cliente%204.png"/></div>
+<div class="hl-clients-carousel__slide hl-clients-carousel__slide--tight"><img alt="Cliente 5" src="images/cliente%205.png"/></div>
+<div class="hl-clients-carousel__slide hl-clients-carousel__slide--small hl-clients-carousel__slide--tight"><img alt="Cliente 6" src="images/cliente%206.png"/></div>
+<div class="hl-clients-carousel__slide" aria-hidden="true"><img alt="" src="images/cliente%201.png"/></div>
+<div class="hl-clients-carousel__slide" aria-hidden="true"><img alt="" src="images/cliente%202.png"/></div>
+<div class="hl-clients-carousel__slide" aria-hidden="true"><img alt="" src="images/cliente%203.png"/></div>
+<div class="hl-clients-carousel__slide" aria-hidden="true"><img alt="" src="images/cliente%204.png"/></div>
+<div class="hl-clients-carousel__slide hl-clients-carousel__slide--tight" aria-hidden="true"><img alt="" src="images/cliente%205.png"/></div>
+<div class="hl-clients-carousel__slide hl-clients-carousel__slide--small hl-clients-carousel__slide--tight" aria-hidden="true"><img alt="" src="images/cliente%206.png"/></div>
+</div>
+</div>
+</div>
+</div>
+</section>
+<!-- Contact Section: Switch to White -->
+<section class="bg-surface py-section-gap" id="contact">
+<div class="px-gutter max-w-container-max mx-auto border-x border-outline-variant">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<div class="lg:col-span-5">
+<h2 class="font-headline-lg text-headline-lg uppercase mb-12 text-primary">
+<span class="bold-font">Hablemos</span>
+</h2>
+<div class="space-y-12">
+<div>
+<span class="font-label-caps text-label-caps text-on-surface-variant block mb-4">EMAIL</span>
+<a class="font-headline-md text-headline-md border-b-2 border-primary pb-2 text-primary hover:opacity-50 transition-opacity" href="mailto:hello@highlight.co">hello@highlight.co</a>
+</div>
+<div class="text-primary">
+<span class="font-label-caps text-label-caps text-on-surface-variant block mb-4">Direccion</span>
+<a class="font-body-lg text-body-lg inline-block hover:opacity-70 transition-opacity" href="https://maps.app.goo.gl/QHPjJorVW7jedfHy8" rel="noopener noreferrer" target="_blank">
+                                    Edificio Mirella (frente al barracón) 7000,<br/>
+                                    Cd. del Este
+                                </a>
+</div>
+</div>
+</div>
+<div class="lg:col-span-7">
+<form class="space-y-12">
+<div class="group">
+<label class="font-label-caps text-label-caps block mb-2 text-on-surface-variant">Nombre/Empresa</label>
+<input class="w-full bg-transparent border-0 border-b border-primary p-0 py-4 focus:ring-0 focus:border-b-2 transition-all placeholder:text-on-surface-variant/30 text-body-lg text-primary" placeholder="Juan Perez / Acme S.A." type="text"/>
+</div>
+<div class="group">
+<label class="font-label-caps text-label-caps block mb-2 text-on-surface-variant">EMAIL</label>
+<input class="w-full bg-transparent border-0 border-b border-primary p-0 py-4 focus:ring-0 focus:border-b-2 transition-all placeholder:text-on-surface-variant/30 text-body-lg text-primary" placeholder="juan@example.com" type="email"/>
+</div>
+<div class="group">
+<label class="font-label-caps text-label-caps block mb-2 text-on-surface-variant">Como podemos ayudarte?</label>
+<textarea class="w-full bg-transparent border-0 border-b border-primary p-0 py-4 focus:ring-0 focus:border-b-2 transition-all placeholder:text-on-surface-variant/30 text-body-lg resize-none text-primary" placeholder="Describe tu proyecto." rows="4"></textarea>
+</div>
+<button class="bg-primary text-on-primary w-full py-6 font-label-caps text-label-caps tracking-widest active:scale-[0.98] transition-all" type="submit">
+                                Enviar Mensaje
+                            </button>
+</form>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- Footer: Keep Black -->
+<footer class="w-full py-12 bg-primary text-on-primary border-t border-on-primary/20">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-gutter max-w-container-max mx-auto items-start">
+<div class="md:col-span-6">
+<div class="text-headline-md font-bold text-on-primary flex items-baseline mb-6">
+<span class="bold-font">high</span><span class="thin-font">light</span>
+</div>
+<p class="text-footer-tiny font-footer-tiny text-on-primary opacity-50 tracking-[0.2em] leading-loose max-w-sm">
+                    HIGHLIGHT MARKETING &amp; CO. ES UNA AGENCIA CREATIVA MULTIDISCIPLINARIA, CONSTRUIDA PARA LA PRECISIÓN Y EL IMPACTO.
+                </p>
+</div>
+<div class="md:col-span-3">
+<span class="font-label-caps text-label-caps text-on-primary block mb-4 opacity-70">MAPA DEL SITIO</span>
+<ul class="space-y-3">
+<li><a class="font-body-md text-on-primary/80 hover:text-on-primary transition-colors duration-200" href="#inicio">Inicio</a></li>
+<li><a class="font-body-md text-on-primary/80 hover:text-on-primary transition-colors duration-200" href="#servicios">Servicios</a></li>
+<li><a class="font-body-md text-on-primary/80 hover:text-on-primary transition-colors duration-200" href="#clientes">Clientes</a></li>
+<li><a class="font-body-md text-on-primary/80 hover:text-on-primary transition-colors duration-200" href="#nosotros">Nosotros</a></li>
+<li><a class="font-body-md text-on-primary hover:text-on-primary transition-colors duration-200 underline" href="#contact">Contacto</a></li>
+</ul>
+</div>
+<div class="md:col-span-3">
+<span class="font-label-caps text-label-caps text-on-primary block mb-4 opacity-70">SIGUENOS</span>
+<ul class="flex items-center gap-6">
+<li>
+<a aria-label="Instagram" class="text-on-primary/80 hover:text-on-primary transition-colors duration-200 inline-flex" href="#">
+<svg aria-hidden="true" class="w-6 h-6" fill="none" viewBox="0 0 24 24">
+<path d="M7.5 2.75h9A4.75 4.75 0 0 1 21.25 7.5v9A4.75 4.75 0 0 1 16.5 21.25h-9A4.75 4.75 0 0 1 2.75 16.5v-9A4.75 4.75 0 0 1 7.5 2.75Z" stroke="currentColor" stroke-width="1.5"/>
+<path d="M12 8.25A3.75 3.75 0 1 1 8.25 12 3.75 3.75 0 0 1 12 8.25Z" stroke="currentColor" stroke-width="1.5"/>
+<path d="M17.25 6.75h.01" stroke="currentColor" stroke-linecap="round" stroke-width="2.5"/>
+</svg>
+</a>
+</li>
+<li>
+<a aria-label="TikTok" class="text-on-primary/80 hover:text-on-primary transition-colors duration-200 inline-flex" href="#">
+<svg aria-hidden="true" class="w-6 h-6" fill="none" viewBox="0 0 24 24">
+<path d="M14 3v10.1a3.6 3.6 0 1 1-2.4-3.4V6.2c-1.1-.2-2.2 0-3.2.6A5.6 5.6 0 1 0 16 12.4V9.1c1.1 1.1 2.5 1.8 4 1.9V8.7c-1.5-.1-3-.9-4-2V3h-2Z" fill="currentColor"/>
+</svg>
+</a>
+</li>
+<li>
+<a aria-label="Facebook" class="text-on-primary/80 hover:text-on-primary transition-colors duration-200 inline-flex" href="#">
+<svg aria-hidden="true" class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+<path d="M13.5 22v-8h2.7l.4-3h-3.1V9.1c0-.9.2-1.5 1.5-1.5H16.7V5a22 22 0 0 0-2.4-.1c-2.4 0-4 1.5-4 4.1V11H7.7v3h2.6v8h3.2Z"/>
+</svg>
+</a>
+</li>
+</ul>
+</div>
+<div class="md:col-span-12 border-t border-on-primary/10 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="text-footer-tiny font-footer-tiny text-on-primary opacity-40">
+© 2023 HIGHLIGHT MARKETING &amp; CO. TODOS LOS DERECHOS RESERVADOS. ·
+<a class="hover:opacity-100" href="https://nexabyte-portafolio.vercel.app/" rel="noopener noreferrer" target="_blank">DESARROLLADO POR <span class="underline underline-offset-4">NEXABYTE</span></a>
+</span>
+<div class="flex gap-8">
+<a class="text-footer-tiny font-footer-tiny text-on-primary opacity-40 hover:opacity-100 uppercase" href="privacy-policy.html">POLITICA DE PRIVACIDAD</a>
+<a class="text-footer-tiny font-footer-tiny text-on-primary opacity-40 hover:opacity-100 uppercase" href="terms-and-conditions.html">TERMINOS Y CONDICIONES</a>
+</div>
+</div>
+</div>
+</footer>
+<script>
+        let lastScroll = 0;
+        const nav = document.getElementById('main-nav');
+        const dropdowns = document.querySelectorAll('[data-dropdown]');
+
+        dropdowns.forEach((dropdown) => {
+            const trigger = dropdown.querySelector('[data-dropdown-trigger]');
+
+            if (!trigger) {
+                return;
+            }
+
+            trigger.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const willOpen = !dropdown.classList.contains('is-open');
+
+                dropdowns.forEach((item) => {
+                    item.classList.remove('is-open');
+                    const itemTrigger = item.querySelector('[data-dropdown-trigger]');
+                    if (itemTrigger) {
+                        itemTrigger.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                dropdown.classList.toggle('is-open', willOpen);
+                trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+            });
+        });
+
+        document.addEventListener('click', () => {
+            dropdowns.forEach((dropdown) => {
+                dropdown.classList.remove('is-open');
+                const trigger = dropdown.querySelector('[data-dropdown-trigger]');
+                if (trigger) {
+                    trigger.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+
+        window.addEventListener('scroll', () => {
+            const currentScroll = window.pageYOffset;
+            if (currentScroll <= 0) {
+                nav.style.transform = 'translateY(0)';
+                return;
+            }
+            if (currentScroll > lastScroll && currentScroll > 80) {
+                nav.style.transform = 'translateY(-100%)';
+            } else {
+                nav.style.transform = 'translateY(0)';
+            }
+            lastScroll = currentScroll;
+        });
+    </script>
+</body></html>

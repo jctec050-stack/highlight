@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+
+<html class="light" lang="es"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Highlight Academy | Highlight</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="styles.css" rel="stylesheet"/>
+<script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    "colors": {
+                        "surface-dim": "#dadada", "on-primary-fixed-variant": "#474747", "secondary": "#5d5f5f", "surface": "#f9f9f9",
+                        "primary-container": "#1b1b1b", "on-tertiary-fixed-variant": "#464747", "on-secondary-fixed": "#1a1c1c",
+                        "inverse-primary": "#c6c6c6", "on-surface": "#1a1c1c", "surface-container-low": "#f3f3f3",
+                        "surface-tint": "#5e5e5e", "on-error": "#ffffff", "on-tertiary-container": "#848484",
+                        "primary-fixed": "#e2e2e2", "surface-container-lowest": "#ffffff", "surface-container": "#eeeeee",
+                        "on-secondary-container": "#636565", "error-container": "#ffdad6", "on-secondary-fixed-variant": "#454747",
+                        "inverse-surface": "#2f3131", "on-background": "#1a1c1c", "surface-container-high": "#e8e8e8",
+                        "outline": "#7e7576", "primary": "#000000", "surface-container-highest": "#e2e2e2",
+                        "secondary-fixed-dim": "#c6c7c6", "on-error-container": "#93000a", "background": "#f9f9f9",
+                        "secondary-fixed": "#e2e3e2", "secondary-container": "#e2e3e2", "on-primary": "#ffffff",
+                        "on-primary-container": "#848484", "surface-variant": "#e2e2e2", "outline-variant": "#cfc4c5",
+                        "tertiary-fixed": "#e3e2e2", "inverse-on-surface": "#f1f1f1", "tertiary-fixed-dim": "#c7c6c6",
+                        "surface-bright": "#f9f9f9", "on-primary-fixed": "#1b1b1b", "tertiary": "#000000",
+                        "on-tertiary": "#ffffff", "primary-fixed-dim": "#c6c6c6", "on-surface-variant": "#4c4546",
+                        "on-secondary": "#ffffff", "tertiary-container": "#1b1c1c", "error": "#ba1a1a", "on-tertiary-fixed": "#1b1c1c"
+                    },
+                    "borderRadius": { "DEFAULT": "0.25rem", "lg": "0.5rem", "xl": "0.75rem", "full": "9999px" },
+                    "spacing": { "gutter": "32px", "container-max": "1280px", "margin-mobile": "24px", "margin-desktop": "64px", "unit": "8px", "section-gap": "160px" },
+                    "fontFamily": { "label-caps": ["Inter"], "footer-tiny": ["Inter"], "display-xl-mobile": ["Inter"], "body-md": ["Inter"], "headline-md": ["Inter"], "body-lg": ["Inter"], "headline-lg": ["Inter"], "display-xl": ["Inter"] },
+                    "fontSize": {
+                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
+                        "footer-tiny": ["10px", {"lineHeight": "1.0", "fontWeight": "400"}],
+                        "display-xl-mobile": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
+                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
+                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
+                        "display-xl": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}]
+                    }
+                },
+            },
+        }
+    </script>
+</head>
+<body class="bg-background text-on-background font-body-md selection:bg-primary selection:text-on-primary">
+<header class="border-b border-primary bg-surface">
+<div class="flex justify-between items-center px-gutter max-w-container-max mx-auto h-20">
+<a class="text-headline-md tracking-tighter text-primary flex items-baseline" href="index.html"><span class="bold-font">high</span><span class="thin-font">light</span></a>
+<nav class="hidden md:flex gap-8 items-center h-full">
+<a class="font-label-caps text-label-caps text-on-surface-variant opacity-70 h-full flex items-center hover:opacity-100 transition-opacity duration-200" href="index.html#inicio">INICIO</a>
+<div class="hl-nav-dropdown relative h-full flex items-center" data-dropdown>
+<button aria-expanded="false" aria-haspopup="true" class="font-label-caps text-label-caps text-primary border-b-2 border-primary h-full flex items-center gap-2 hover:opacity-100 transition-opacity duration-200 bg-transparent border-0 p-0" data-dropdown-trigger type="button"><span>SERVICIOS</span><span aria-hidden="true" class="text-[10px] leading-none">▾</span></button>
+<div class="hl-nav-dropdown__menu">
+<a class="hl-nav-dropdown__link" href="highlight-marketing.html">Marketing</a>
+<a class="hl-nav-dropdown__link" href="highlight-pr.html">PR</a>
+<a class="hl-nav-dropdown__link" href="highlight-academy.html">Academy</a>
+</div>
+</div>
+<a class="font-label-caps text-label-caps text-on-surface-variant opacity-70 h-full flex items-center hover:opacity-100 transition-opacity duration-200" href="index.html#clientes">CLIENTES</a>
+<a class="font-label-caps text-label-caps text-on-surface-variant opacity-70 h-full flex items-center hover:opacity-100 transition-opacity duration-200" href="index.html#nosotros">NOSOTROS</a>
+</nav>
+<a class="font-label-caps text-label-caps text-primary border border-primary px-6 py-2 active:scale-95 transition-all duration-150" href="index.html#contact">Contacto</a>
+</div>
+</header>
+<main>
+<section class="bg-surface">
+<div class="px-gutter max-w-container-max mx-auto border-x border-outline-variant py-20 md:py-28">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-end">
+<div class="lg:col-span-8">
+<div class="font-label-caps text-label-caps text-primary mb-6">DIVISION 03</div>
+<h1 class="hl-division-hero-title text-primary mb-8"><span class="bold-font block">highlight</span><span class="thin-font block">ACADEMY</span></h1>
+<p class="font-body-lg text-body-lg max-w-3xl text-on-surface-variant">División orientada a formación, entrenamiento y transferencia práctica de conocimiento para personas, equipos y marcas que necesitan elevar sus capacidades de marketing, comunicación y negocio.</p>
+</div>
+<div class="lg:col-span-4 lg:border-l lg:border-primary lg:pl-gutter">
+<div class="font-label-caps text-label-caps text-primary mb-4">EN ESTA PAGINA</div>
+<p class="text-footer-tiny font-footer-tiny uppercase tracking-widest text-on-surface-variant leading-relaxed">Espacio diseñado para documentar programas, formatos de capacitación y los proyectos o ediciones más recientes de esta división.</p>
+</div>
+</div>
+</div>
+</section>
+<section class="bg-primary text-on-primary">
+<div class="px-gutter max-w-container-max mx-auto py-16 md:py-24">
+<div class="flex flex-col md:flex-row justify-between items-baseline gap-8 border-b border-on-primary/20 pb-8 mb-16">
+<h2 class="font-headline-lg text-headline-lg uppercase"><span class="bold-font">SERVICIOS</span> <span class="thin-font">INCLUIDOS</span></h2>
+<div class="font-label-caps text-label-caps opacity-60">LISTA BASE EDITABLE</div>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 border-t border-l border-on-primary/20">
+<div class="border-r border-b border-on-primary/20 p-gutter min-h-[220px]"><div class="font-label-caps text-label-caps opacity-60 mb-4">01</div><h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Workshops</span> <span class="thin-font">In-Company</span></h3><p class="text-body-md text-on-primary/70">Sesiones intensivas para equipos, enfocadas en retos concretos, herramientas y aplicación práctica.</p></div>
+<div class="border-r border-b border-on-primary/20 p-gutter min-h-[220px]"><div class="font-label-caps text-label-caps opacity-60 mb-4">02</div><h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Mentorias</span> <span class="thin-font">Personalizadas</span></h3><p class="text-body-md text-on-primary/70">Acompañamiento estratégico para profesionales, emprendedores o marcas con objetivos específicos.</p></div>
+<div class="border-r border-b border-on-primary/20 p-gutter min-h-[220px]"><div class="font-label-caps text-label-caps opacity-60 mb-4">03</div><h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Programas</span> <span class="thin-font">Formativos</span></h3><p class="text-body-md text-on-primary/70">Diseño de recorridos de aprendizaje para fortalecer habilidades en marketing, marca y comunicación.</p></div>
+<div class="border-r border-b border-on-primary/20 p-gutter min-h-[220px]"><div class="font-label-caps text-label-caps opacity-60 mb-4">04</div><h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Capacitacion</span> <span class="thin-font">de Equipos</span></h3><p class="text-body-md text-on-primary/70">Entrenamientos orientados a mejorar procesos internos, criterio estratégico y ejecución de equipos.</p></div>
+<div class="border-r border-b border-on-primary/20 p-gutter min-h-[220px]"><div class="font-label-caps text-label-caps opacity-60 mb-4">05</div><h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Materiales</span> <span class="thin-font">y Recursos</span></h3><p class="text-body-md text-on-primary/70">Guías, recursos, plantillas y documentos de apoyo para facilitar implementación y seguimiento.</p></div>
+<div class="border-r border-b border-on-primary/20 p-gutter min-h-[220px]"><div class="font-label-caps text-label-caps opacity-60 mb-4">06</div><h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Programas</span> <span class="thin-font">a Medida</span></h3><p class="text-body-md text-on-primary/70">Desarrollo de propuestas formativas adaptadas a industria, nivel de madurez y objetivos del cliente.</p></div>
+</div>
+</div>
+</section>
+<section class="bg-surface">
+<div class="px-gutter max-w-container-max mx-auto border-x border-outline-variant py-16 md:py-24">
+<div class="flex flex-col md:flex-row justify-between items-baseline gap-8 border-b border-primary/20 pb-8 mb-16">
+<h2 class="font-headline-lg text-headline-lg uppercase text-primary"><span class="bold-font">ULTIMOS</span> <span class="thin-font">PROYECTOS</span></h2>
+<div class="font-label-caps text-label-caps text-on-surface-variant">ESPACIOS LISTOS PARA COMPLETAR</div>
+</div>
+<div class="grid grid-cols-1 lg:grid-cols-3 gap-px bg-primary/10">
+<article class="bg-surface border border-outline-variant p-gutter min-h-[280px]"><div class="font-label-caps text-label-caps text-on-surface-variant mb-4">PROYECTO 01</div><h3 class="font-headline-md text-headline-md uppercase text-primary mb-4"><span class="bold-font">Programa</span> <span class="thin-font">Reciente</span></h3><p class="text-body-md text-on-surface-variant mb-8">Espacio preparado para sumar una edición, taller o proceso formativo ya ejecutado por esta división.</p><div class="text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-on-surface-variant">Cliente / Formato / Fecha</div></article>
+<article class="bg-surface border border-outline-variant p-gutter min-h-[280px]"><div class="font-label-caps text-label-caps text-on-surface-variant mb-4">PROYECTO 02</div><h3 class="font-headline-md text-headline-md uppercase text-primary mb-4"><span class="bold-font">Workshop</span> <span class="thin-font">Intensivo</span></h3><p class="text-body-md text-on-surface-variant mb-8">Tarjeta lista para describir objetivo, participantes, contenidos desarrollados e impacto observado.</p><div class="text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-on-surface-variant">Cliente / Formato / Fecha</div></article>
+<article class="bg-surface border border-outline-variant p-gutter min-h-[280px]"><div class="font-label-caps text-label-caps text-on-surface-variant mb-4">PROYECTO 03</div><h3 class="font-headline-md text-headline-md uppercase text-primary mb-4"><span class="bold-font">Mentoria</span> <span class="thin-font">Aplicada</span></h3><p class="text-body-md text-on-surface-variant mb-8">Bloque preparado para completar con un proyecto adicional y documentar metodología, foco y resultados.</p><div class="text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-on-surface-variant">Cliente / Formato / Fecha</div></article>
+</div>
+</div>
+</section>
+<section class="bg-primary text-on-primary">
+<div class="px-gutter max-w-container-max mx-auto py-16 md:py-24">
+<div class="border border-on-primary/20 p-gutter flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+<div>
+<div class="font-label-caps text-label-caps opacity-60 mb-4">SIGUIENTE PASO</div>
+<h2 class="font-headline-lg text-headline-lg uppercase mb-4"><span class="bold-font">Activemos</span> <span class="thin-font">el aprendizaje</span></h2>
+<p class="text-body-md text-on-primary/75 max-w-2xl">La base está lista para seguir incorporando programas, metodologías, casos reales y resultados de Academy.</p>
+</div>
+<a class="font-label-caps text-label-caps border border-on-primary px-8 py-4 inline-flex items-center gap-2 hover:bg-surface hover:text-primary transition-colors duration-300" href="index.html#contact">Ir a contacto <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span></a>
+</div>
+</div>
+</section>
+</main>
+<footer class="w-full py-10 bg-primary text-on-primary border-t border-on-primary/20">
+<div class="px-gutter max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<span class="text-footer-tiny font-footer-tiny text-on-primary opacity-40">© 2023 HIGHLIGHT MARKETING &amp; CO. TODOS LOS DERECHOS RESERVADOS.</span>
+<div class="flex gap-8">
+<a class="text-footer-tiny font-footer-tiny text-on-primary opacity-40 hover:opacity-100 uppercase" href="privacy-policy.html">POLITICA DE PRIVACIDAD</a>
+<a class="text-footer-tiny font-footer-tiny text-on-primary opacity-40 hover:opacity-100 uppercase" href="terms-and-conditions.html">TERMINOS Y CONDICIONES</a>
+</div>
+</div>
+</footer>
+<script>
+        const dropdowns = document.querySelectorAll('[data-dropdown]');
+
+        dropdowns.forEach((dropdown) => {
+            const trigger = dropdown.querySelector('[data-dropdown-trigger]');
+
+            if (!trigger) {
+                return;
+            }
+
+            trigger.addEventListener('click', (event) => {
+                event.stopPropagation();
+                const willOpen = !dropdown.classList.contains('is-open');
+
+                dropdowns.forEach((item) => {
+                    item.classList.remove('is-open');
+                    const itemTrigger = item.querySelector('[data-dropdown-trigger]');
+                    if (itemTrigger) {
+                        itemTrigger.setAttribute('aria-expanded', 'false');
+                    }
+                });
+
+                dropdown.classList.toggle('is-open', willOpen);
+                trigger.setAttribute('aria-expanded', willOpen ? 'true' : 'false');
+            });
+        });
+
+        document.addEventListener('click', () => {
+            dropdowns.forEach((dropdown) => {
+                dropdown.classList.remove('is-open');
+                const trigger = dropdown.querySelector('[data-dropdown-trigger]');
+                if (trigger) {
+                    trigger.setAttribute('aria-expanded', 'false');
+                }
+            });
+        });
+    </script>
+</body></html>
