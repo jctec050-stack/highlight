@@ -50,8 +50,11 @@
 </head>
 <body class="bg-background text-on-background font-body-md selection:bg-primary selection:text-on-primary">
 <header class="border-b border-primary bg-surface">
-<div class="flex justify-between items-center px-gutter max-w-container-max mx-auto h-20">
+<div class="flex justify-between items-center px-6 md:px-gutter max-w-container-max mx-auto h-20">
+<div class="flex items-center gap-4">
+<span class="material-symbols-outlined text-primary cursor-pointer md:hidden" id="mobile-menu-trigger" data-icon="menu">menu</span>
 <a class="text-headline-md tracking-tighter text-primary flex items-baseline" href="index.html"><span class="bold-font">high</span><span class="thin-font">light</span></a>
+</div>
 <nav class="hidden md:flex gap-8 items-center h-full">
 <a class="font-label-caps text-label-caps text-on-surface-variant opacity-70 h-full flex items-center hover:opacity-100 transition-opacity duration-200" href="index.html#inicio">INICIO</a>
 <div class="hl-nav-dropdown relative h-full flex items-center" data-dropdown>
@@ -70,8 +73,8 @@
 </header>
 <main>
 <section class="bg-surface">
-<div class="px-gutter max-w-container-max mx-auto border-x border-outline-variant py-20 md:py-28">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-end">
+<div class="px-6 md:px-gutter max-w-container-max mx-auto border-x border-outline-variant py-12 md:py-20 lg:py-28">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-gutter items-end">
 <div class="lg:col-span-8">
 <div class="font-label-caps text-label-caps text-primary mb-6">DIVISION 02</div>
 <h1 class="text-primary mb-8">
@@ -91,37 +94,37 @@
 </div>
 </section>
 <section class="bg-primary text-on-primary">
-<div class="px-gutter max-w-container-max mx-auto py-16 md:py-24">
-<div class="flex flex-col md:flex-row justify-between items-baseline gap-8 border-b border-on-primary/20 pb-8 mb-16">
+<div class="px-6 md:px-gutter max-w-container-max mx-auto py-12 md:py-20 lg:py-24">
+<div class="flex flex-col md:flex-row justify-between items-baseline gap-8 border-b border-on-primary/20 pb-8 mb-12 md:mb-16">
 <h2 class="font-headline-lg text-headline-lg uppercase"><span class="bold-font">SERVICIOS</span> <span class="thin-font">INCLUIDOS</span></h2>
 <div class="font-label-caps text-label-caps opacity-60">LISTA BASE EDITABLE</div>
 </div>
 <div class="grid grid-cols-1 md:grid-cols-2 xl:grid-cols-3 border-t border-l border-on-primary/20">
-<div class="border-r border-b border-on-primary/20 p-gutter min-h-[220px]"><div class="font-label-caps text-label-caps opacity-60 mb-4">01</div><h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Relaciones</span> <span class="thin-font">Publicas</span></h3><p class="text-body-md text-on-primary/70">Diseño de estrategia de posicionamiento público y visibilidad para marcas, voceros y proyectos.</p></div>
-<div class="border-r border-b border-on-primary/20 p-gutter min-h-[220px]"><div class="font-label-caps text-label-caps opacity-60 mb-4">02</div><h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Prensa</span> <span class="thin-font">y Medios</span></h3><p class="text-body-md text-on-primary/70">Gestión de vínculos con medios, armado de mensajes y oportunidades de exposición editorial.</p></div>
-<div class="border-r border-b border-on-primary/20 p-gutter min-h-[220px]"><div class="font-label-caps text-label-caps opacity-60 mb-4">03</div><h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Voceria</span> <span class="thin-font">y Mensaje</span></h3><p class="text-body-md text-on-primary/70">Preparación de portavoces, mensajes clave y estructura discursiva para apariciones públicas.</p></div>
-<div class="border-r border-b border-on-primary/20 p-gutter min-h-[220px]"><div class="font-label-caps text-label-caps opacity-60 mb-4">04</div><h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Gestion</span> <span class="thin-font">de Crisis</span></h3><p class="text-body-md text-on-primary/70">Protocolos, respuesta comunicacional y contención reputacional ante escenarios sensibles.</p></div>
-<div class="border-r border-b border-on-primary/20 p-gutter min-h-[220px]"><div class="font-label-caps text-label-caps opacity-60 mb-4">05</div><h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Eventos</span> <span class="thin-font">y Activaciones</span></h3><p class="text-body-md text-on-primary/70">Diseño de instancias presenciales o híbridas para amplificar presencia, conexión y cobertura.</p></div>
-<div class="border-r border-b border-on-primary/20 p-gutter min-h-[220px]"><div class="font-label-caps text-label-caps opacity-60 mb-4">06</div><h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Reputacion</span> <span class="thin-font">de Marca</span></h3><p class="text-body-md text-on-primary/70">Seguimiento de percepción, narrativa institucional y fortalecimiento de confianza a largo plazo.</p></div>
+<div class="border-r border-b border-on-primary/20 p-6 md:p-gutter min-h-[220px]"><div class="font-label-caps text-label-caps opacity-60 mb-4">01</div><h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Relaciones</span> <span class="thin-font">Publicas</span></h3><p class="text-body-md text-on-primary/70">Diseño de estrategia de posicionamiento público y visibilidad para marcas, voceros y proyectos.</p></div>
+<div class="border-r border-b border-on-primary/20 p-6 md:p-gutter min-h-[220px]"><div class="font-label-caps text-label-caps opacity-60 mb-4">02</div><h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Prensa</span> <span class="thin-font">y Medios</span></h3><p class="text-body-md text-on-primary/70">Gestión de vínculos con medios, armado de mensajes y oportunidades de exposición editorial.</p></div>
+<div class="border-r border-b border-on-primary/20 p-6 md:p-gutter min-h-[220px]"><div class="font-label-caps text-label-caps opacity-60 mb-4">03</div><h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Voceria</span> <span class="thin-font">y Mensaje</span></h3><p class="text-body-md text-on-primary/70">Preparación de portavoces, mensajes clave y estructura discursiva para apariciones públicas.</p></div>
+<div class="border-r border-b border-on-primary/20 p-6 md:p-gutter min-h-[220px]"><div class="font-label-caps text-label-caps opacity-60 mb-4">04</div><h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Gestion</span> <span class="thin-font">de Crisis</span></h3><p class="text-body-md text-on-primary/70">Protocolos, respuesta comunicacional y contención reputacional ante escenarios sensibles.</p></div>
+<div class="border-r border-b border-on-primary/20 p-6 md:p-gutter min-h-[220px]"><div class="font-label-caps text-label-caps opacity-60 mb-4">05</div><h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Eventos</span> <span class="thin-font">y Activaciones</span></h3><p class="text-body-md text-on-primary/70">Diseño de instancias presenciales o híbridas para amplificar presencia, conexión y cobertura.</p></div>
+<div class="border-r border-b border-on-primary/20 p-6 md:p-gutter min-h-[220px]"><div class="font-label-caps text-label-caps opacity-60 mb-4">06</div><h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Reputacion</span> <span class="thin-font">de Marca</span></h3><p class="text-body-md text-on-primary/70">Seguimiento de percepción, narrativa institucional y fortalecimiento de confianza a largo plazo.</p></div>
 </div>
 </div>
 </section>
 <section class="bg-surface">
-<div class="px-gutter max-w-container-max mx-auto border-x border-outline-variant py-16 md:py-24">
-<div class="flex flex-col md:flex-row justify-between items-baseline gap-8 border-b border-primary/20 pb-8 mb-16">
+<div class="px-6 md:px-gutter max-w-container-max mx-auto border-x border-outline-variant py-12 md:py-20 lg:py-24">
+<div class="flex flex-col md:flex-row justify-between items-baseline gap-8 border-b border-primary/20 pb-8 mb-12 md:mb-16">
 <h2 class="font-headline-lg text-headline-lg uppercase text-primary"><span class="bold-font">ULTIMOS</span> <span class="thin-font">PROYECTOS</span></h2>
 <div class="font-label-caps text-label-caps text-on-surface-variant">ESPACIOS LISTOS PARA COMPLETAR</div>
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-3 gap-px bg-primary/10">
-<article class="bg-surface border border-outline-variant p-gutter min-h-[280px]"><div class="font-label-caps text-label-caps text-on-surface-variant mb-4">PROYECTO 01</div><h3 class="font-headline-md text-headline-md uppercase text-primary mb-4"><span class="bold-font">Cobertura</span> <span class="thin-font">Estratégica</span></h3><p class="text-body-md text-on-surface-variant mb-8">Espacio preparado para describir un caso reciente de prensa, reputación o posicionamiento institucional.</p><div class="text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-on-surface-variant">Cliente / Objetivo / Fecha</div></article>
-<article class="bg-surface border border-outline-variant p-gutter min-h-[280px]"><div class="font-label-caps text-label-caps text-on-surface-variant mb-4">PROYECTO 02</div><h3 class="font-headline-md text-headline-md uppercase text-primary mb-4"><span class="bold-font">Voceria</span> <span class="thin-font">y Mensaje</span></h3><p class="text-body-md text-on-surface-variant mb-8">Tarjeta editable para documentar una activación, un plan de medios o una estrategia de posicionamiento.</p><div class="text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-on-surface-variant">Cliente / Objetivo / Fecha</div></article>
-<article class="bg-surface border border-outline-variant p-gutter min-h-[280px]"><div class="font-label-caps text-label-caps text-on-surface-variant mb-4">PROYECTO 03</div><h3 class="font-headline-md text-headline-md uppercase text-primary mb-4"><span class="bold-font">Reputacion</span> <span class="thin-font">Activa</span></h3><p class="text-body-md text-on-surface-variant mb-8">Bloque listo para sumar un tercer proyecto con foco en ejecución, alcance y resultados de comunicación.</p><div class="text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-on-surface-variant">Cliente / Objetivo / Fecha</div></article>
+<article class="bg-surface border border-outline-variant p-6 md:p-gutter min-h-[280px]"><div class="font-label-caps text-label-caps text-on-surface-variant mb-4">PROYECTO 01</div><h3 class="font-headline-md text-headline-md uppercase text-primary mb-4"><span class="bold-font">Cobertura</span> <span class="thin-font">Estratégica</span></h3><p class="text-body-md text-on-surface-variant mb-8">Espacio preparado para describir un caso reciente de prensa, reputación o posicionamiento institucional.</p><div class="text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-on-surface-variant">Cliente / Objetivo / Fecha</div></article>
+<article class="bg-surface border border-outline-variant p-6 md:p-gutter min-h-[280px]"><div class="font-label-caps text-label-caps text-on-surface-variant mb-4">PROYECTO 02</div><h3 class="font-headline-md text-headline-md uppercase text-primary mb-4"><span class="bold-font">Voceria</span> <span class="thin-font">y Mensaje</span></h3><p class="text-body-md text-on-surface-variant mb-8">Tarjeta editable para documentar una activación, un plan de medios o una estrategia de posicionamiento.</p><div class="text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-on-surface-variant">Cliente / Objetivo / Fecha</div></article>
+<article class="bg-surface border border-outline-variant p-6 md:p-gutter min-h-[280px]"><div class="font-label-caps text-label-caps text-on-surface-variant mb-4">PROYECTO 03</div><h3 class="font-headline-md text-headline-md uppercase text-primary mb-4"><span class="bold-font">Reputacion</span> <span class="thin-font">Activa</span></h3><p class="text-body-md text-on-surface-variant mb-8">Bloque listo para sumar un tercer proyecto con foco en ejecución, alcance y resultados de comunicación.</p><div class="text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-on-surface-variant">Cliente / Objetivo / Fecha</div></article>
 </div>
 </div>
 </section>
 <section class="bg-primary text-on-primary">
-<div class="px-gutter max-w-container-max mx-auto py-16 md:py-24">
-<div class="border border-on-primary/20 p-gutter flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
+<div class="px-6 md:px-gutter max-w-container-max mx-auto py-12 md:py-20 lg:py-24">
+<div class="border border-on-primary/20 p-6 md:p-gutter flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
 <div>
 <div class="font-label-caps text-label-caps opacity-60 mb-4">SIGUIENTE PASO</div>
 <h2 class="font-headline-lg text-headline-lg uppercase mb-4"><span class="bold-font">Construyamos</span> <span class="thin-font">reputacion</span></h2>
@@ -133,7 +136,7 @@
 </section>
 </main>
 <footer class="w-full py-10 bg-primary text-on-primary border-t border-on-primary/20">
-<div class="px-gutter max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
+<div class="px-6 md:px-gutter max-w-container-max mx-auto flex flex-col md:flex-row justify-between items-center gap-4">
 <span class="text-footer-tiny font-footer-tiny text-on-primary opacity-40">© 2023 HIGHLIGHT MARKETING &amp; CO. TODOS LOS DERECHOS RESERVADOS.</span>
 <div class="flex gap-8">
 <a class="text-footer-tiny font-footer-tiny text-on-primary opacity-40 hover:opacity-100 uppercase" href="privacy-policy.html">POLITICA DE PRIVACIDAD</a>
@@ -141,6 +144,37 @@
 </div>
 </div>
 </footer>
+<!-- Mobile Navigation Overlay & Drawer -->
+<div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+<div class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="flex justify-between items-center mb-8">
+        <div class="text-headline-md tracking-tighter text-primary flex items-baseline">
+            <span class="bold-font">high</span><span class="thin-font">light</span>
+        </div>
+        <span class="material-symbols-outlined text-primary cursor-pointer text-2xl" id="mobile-menu-close">close</span>
+    </div>
+    <nav class="flex flex-col gap-6 text-left">
+        <a class="font-label-caps text-label-caps text-primary py-2 border-b border-primary/10" href="index.html#inicio">INICIO</a>
+        
+        <!-- Mobile Dropdown Services -->
+        <div class="mobile-dropdown py-2 border-b border-primary/10">
+            <button type="button" class="font-label-caps text-label-caps text-primary w-full flex justify-between items-center bg-transparent border-0 p-0" id="mobile-services-trigger">
+                <span>SERVICIOS</span>
+                <span class="text-[10px] transition-transform duration-200" id="mobile-services-arrow">▾</span>
+            </button>
+            <div class="mobile-dropdown-menu flex flex-col gap-4 pl-4 mt-4" id="mobile-services-menu">
+                <a class="font-label-caps text-[11px] text-on-surface-variant hover:text-primary" href="highlight-marketing.html">Marketing</a>
+                <a class="font-label-caps text-[11px] text-on-surface-variant hover:text-primary" href="highlight-pr.html">PR</a>
+                <a class="font-label-caps text-[11px] text-on-surface-variant hover:text-primary" href="highlight-academy.html">Academy</a>
+            </div>
+        </div>
+        
+        <a class="font-label-caps text-label-caps text-primary py-2 border-b border-primary/10" href="index.html#clientes">CLIENTES</a>
+        <a class="font-label-caps text-label-caps text-primary py-2 border-b border-primary/10" href="index.html#nosotros">NOSOTROS</a>
+        <a class="font-label-caps text-label-caps text-primary py-2 border-b border-primary/10" href="index.html#contact">Contacto</a>
+    </nav>
+</div>
+
 <script>
         const dropdowns = document.querySelectorAll('[data-dropdown]');
 
@@ -176,6 +210,56 @@
                     trigger.setAttribute('aria-expanded', 'false');
                 }
             });
+        });
+
+        // Mobile Menu Drawer functionality
+        const mobileMenuTrigger = document.getElementById('mobile-menu-trigger');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
+        const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+        const mobileServicesTrigger = document.getElementById('mobile-services-trigger');
+        const mobileServicesMenu = document.getElementById('mobile-services-menu');
+        const mobileServicesArrow = document.getElementById('mobile-services-arrow');
+        const mobileDropdown = mobileServicesTrigger ? mobileServicesTrigger.closest('.mobile-dropdown') : null;
+
+        function openMobileMenu() {
+            if (mobileNavDrawer) mobileNavDrawer.classList.add('is-active');
+            if (mobileNavOverlay) mobileNavOverlay.classList.add('is-active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            if (mobileNavDrawer) mobileNavDrawer.classList.remove('is-active');
+            if (mobileNavOverlay) mobileNavOverlay.classList.remove('is-active');
+            document.body.style.overflow = '';
+        }
+
+        if (mobileMenuTrigger) {
+            mobileMenuTrigger.addEventListener('click', openMobileMenu);
+        }
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+        }
+        if (mobileNavOverlay) {
+            mobileNavOverlay.addEventListener('click', closeMobileMenu);
+        }
+
+        if (mobileServicesTrigger) {
+            mobileServicesTrigger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (mobileDropdown) {
+                    const isOpen = mobileDropdown.classList.contains('is-open');
+                    mobileDropdown.classList.toggle('is-open', !isOpen);
+                    if (mobileServicesArrow) {
+                        mobileServicesArrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                    }
+                }
+            });
+        }
+
+        const mobileLinks = mobileNavDrawer ? mobileNavDrawer.querySelectorAll('a[href^="index.html#"]') : [];
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
         });
     </script>
 </body></html>

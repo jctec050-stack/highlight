@@ -103,9 +103,9 @@
 <body class="bg-background text-on-background font-body-md selection:bg-primary selection:text-on-primary">
 <!-- TopAppBar -->
 <header class="fixed top-0 w-full h-20 bg-surface border-b border-primary z-50 transition-transform duration-300" id="main-nav">
-<div class="flex justify-between items-center px-gutter max-w-container-max mx-auto h-full">
+<div class="flex justify-between items-center px-6 md:px-gutter max-w-container-max mx-auto h-full">
 <div class="flex items-center gap-4">
-<span class="material-symbols-outlined text-primary cursor-pointer lg:hidden" data-icon="menu">menu</span>
+<span class="material-symbols-outlined text-primary cursor-pointer md:hidden" id="mobile-menu-trigger" data-icon="menu">menu</span>
 <div class="text-headline-md tracking-tighter text-primary flex items-baseline">
 <span class="bold-font">high</span><span class="thin-font">light</span>
 </div>
@@ -130,8 +130,8 @@
 </header>
 <main class="pt-20">
 <!-- Hero Section: Keep White -->
-<section class="min-h-[795px] bg-surface flex flex-col justify-center px-gutter max-w-container-max mx-auto border-x border-outline-variant" id="inicio">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter items-end">
+<section class="min-h-[80vh] lg:min-h-[795px] bg-surface flex flex-col justify-center px-6 md:px-gutter py-12 lg:py-0 max-w-container-max mx-auto border-x border-outline-variant" id="inicio">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-gutter items-end">
 <div class="lg:col-span-8">
 <h1 class="font-display-xl text-display-xl lg:text-[140px] leading-[0.9] tracking-tighter mb-12 text-primary">
 <span class="bold-font block">ELEVAMOS</span>
@@ -157,9 +157,9 @@
 </div>
 </section>
 <!-- Services Section: Switch to Black -->
-<section class="bg-primary text-on-primary py-section-gap" id="servicios">
-<div class="px-gutter max-w-container-max mx-auto">
-<div class="flex flex-col md:flex-row justify-between items-baseline mb-20 gap-8 border-b border-on-primary/20 pb-8">
+<section class="bg-primary text-on-primary py-16 md:py-28 lg:py-section-gap" id="servicios">
+<div class="px-6 md:px-gutter max-w-container-max mx-auto">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-12 md:mb-20 gap-8 border-b border-on-primary/20 pb-8">
 <h2 class="font-headline-lg text-headline-lg uppercase flex items-center gap-4">
 <span class="bold-font">NUESTROS</span><span class="thin-font">SERVICIOS</span>
 </h2>
@@ -167,7 +167,7 @@
 </div>
 <div class="grid grid-cols-1 md:grid-cols-3 gap-0 border-t border-l border-on-primary/20">
 <!-- Service Card 1 -->
-<div class="border-r border-b border-on-primary/20 p-gutter flex flex-col justify-between group hover:bg-surface transition-colors duration-500 min-h-[400px]" id="servicio-highlight">
+<div class="border-r border-b border-on-primary/20 p-6 md:p-gutter flex flex-col justify-between group hover:bg-surface transition-colors duration-500 min-h-[400px]" id="servicio-highlight">
 <div class="w-full h-28 flex items-center justify-center">
 <div class="relative inline-block scale-150 origin-center leading-none text-on-primary group-hover:text-primary transition-colors duration-500">
 <div class="flex items-baseline tracking-tight">
@@ -189,7 +189,7 @@
 </div>
 </div>
 <!-- Service Card 2 -->
-<div class="border-r border-b border-on-primary/20 p-gutter flex flex-col justify-between group hover:bg-surface transition-colors duration-500 min-h-[400px]" id="servicio-pr">
+<div class="border-r border-b border-on-primary/20 p-6 md:p-gutter flex flex-col justify-between group hover:bg-surface transition-colors duration-500 min-h-[400px]" id="servicio-pr">
 <div class="w-full h-28 flex items-center justify-center">
 <div class="hl-pr-logo relative inline-flex items-baseline scale-150 origin-center leading-none text-on-primary group-hover:text-primary transition-colors duration-500">
 <span class="hl-pr-logo__high bold-font text-[40px] leading-none">high</span>
@@ -212,7 +212,7 @@
 </div>
 </div>
 <!-- Service Card 3 -->
-<div class="border-r border-b border-on-primary/20 p-gutter flex flex-col justify-between group hover:bg-surface transition-colors duration-500 min-h-[400px]" id="servicio-academy">
+<div class="border-r border-b border-on-primary/20 p-6 md:p-gutter flex flex-col justify-between group hover:bg-surface transition-colors duration-500 min-h-[400px]" id="servicio-academy">
 <div class="w-full h-28 flex items-center justify-center">
 <div class="relative inline-block scale-150 origin-center leading-none text-on-primary group-hover:text-primary transition-colors duration-500">
 <div class="flex items-baseline tracking-tight">
@@ -242,14 +242,14 @@
 </div>
 </section>
 <!-- Image Quote Section: Switch to White -->
-<section class="bg-surface py-section-gap" id="nosotros">
-<div class="px-gutter max-w-container-max mx-auto border-x border-outline-variant overflow-hidden">
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-20 items-center">
-<div class="relative overflow-hidden aspect-[4/5] bg-surface-container">
+<section class="bg-surface py-16 md:py-28 lg:py-section-gap" id="nosotros">
+<div class="px-6 md:px-gutter max-w-container-max mx-auto border-x border-outline-variant overflow-hidden">
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 lg:gap-20 items-center">
+<div class="relative overflow-hidden aspect-[4/5] max-h-[500px] lg:max-h-none bg-surface-container">
 <img alt="Highlight team photo" class="w-full h-full object-cover filter grayscale" data-alt="A photograph of a high-end, minimalist architectural space with sharp geometric lines and vast concrete walls. The lighting is cold and clinical, emphasizing a modern light-mode aesthetic. A single designer piece of furniture sits in the center of the vast grey expanse, creating a sense of luxury and focus. The overall atmosphere is silent, sophisticated, and professional, dominated by a monochromatic palette." src="images/foto.png"/>
 </div>
 <div class="flex flex-col gap-8 text-primary">
-<blockquote class="font-headline-lg text-headline-lg-mobile lg:text-headline-lg leading-tight">
+<blockquote class="font-headline-lg text-headline-md lg:text-headline-lg leading-tight">
                             "<span class="font-[400]">Una agencia de marketing deberia construir y prometer</span> <span class="bold-font">perspectiva de valor</span>"
                         </blockquote>
 <cite class="font-label-caps text-label-caps text-on-surface-variant not-italic border-l-2 border-primary pl-4 py-2">
@@ -262,9 +262,9 @@
 </div>
 </section>
 <!-- Work Section: Keep Black -->
-<section class="bg-primary text-on-primary py-section-gap" id="clientes">
-<div class="max-w-container-max mx-auto px-gutter">
-<div class="flex flex-col md:flex-row justify-between items-baseline mb-20 gap-8 border-b border-on-primary/20 pb-8">
+<section class="bg-primary text-on-primary py-16 md:py-28 lg:py-section-gap" id="clientes">
+<div class="max-w-container-max mx-auto px-6 md:px-gutter">
+<div class="flex flex-col md:flex-row justify-between items-baseline mb-12 md:mb-20 gap-8 border-b border-on-primary/20 pb-8">
 <h2 class="font-headline-lg text-headline-lg uppercase">
 <span class="bold-font">CLIENTES&nbsp;</span><span class="thin-font">DESTACADOS</span>
 </h2>
@@ -290,9 +290,9 @@
 </div>
 </section>
 <!-- Contact Section: Switch to White -->
-<section class="bg-surface py-section-gap" id="contact">
-<div class="px-gutter max-w-container-max mx-auto border-x border-outline-variant">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-gutter">
+<section class="bg-surface py-16 md:py-28 lg:py-section-gap" id="contact">
+<div class="px-6 md:px-gutter max-w-container-max mx-auto border-x border-outline-variant">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-12 lg:gap-gutter">
 <div class="lg:col-span-5">
 <h2 class="font-headline-lg text-headline-lg uppercase mb-12 text-primary">
 <span class="bold-font">Hablemos</span>
@@ -336,7 +336,7 @@
 </main>
 <!-- Footer: Keep Black -->
 <footer class="w-full py-12 bg-primary text-on-primary border-t border-on-primary/20">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-gutter max-w-container-max mx-auto items-start">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-6 md:px-gutter max-w-container-max mx-auto items-start">
 <div class="md:col-span-6">
 <div class="text-headline-md font-bold text-on-primary flex items-baseline mb-6">
 <span class="bold-font">high</span><span class="thin-font">light</span>
@@ -395,6 +395,37 @@
 </div>
 </div>
 </footer>
+<!-- Mobile Navigation Overlay & Drawer -->
+<div class="mobile-nav-overlay" id="mobile-nav-overlay"></div>
+<div class="mobile-nav-drawer" id="mobile-nav-drawer">
+    <div class="flex justify-between items-center mb-8">
+        <div class="text-headline-md tracking-tighter text-primary flex items-baseline">
+            <span class="bold-font">high</span><span class="thin-font">light</span>
+        </div>
+        <span class="material-symbols-outlined text-primary cursor-pointer text-2xl" id="mobile-menu-close">close</span>
+    </div>
+    <nav class="flex flex-col gap-6 text-left">
+        <a class="font-label-caps text-label-caps text-primary py-2 border-b border-primary/10" href="#inicio">INICIO</a>
+        
+        <!-- Mobile Dropdown Services -->
+        <div class="mobile-dropdown py-2 border-b border-primary/10">
+            <button type="button" class="font-label-caps text-label-caps text-primary w-full flex justify-between items-center bg-transparent border-0 p-0" id="mobile-services-trigger">
+                <span>SERVICIOS</span>
+                <span class="text-[10px] transition-transform duration-200" id="mobile-services-arrow">▾</span>
+            </button>
+            <div class="mobile-dropdown-menu flex flex-col gap-4 pl-4 mt-4" id="mobile-services-menu">
+                <a class="font-label-caps text-[11px] text-on-surface-variant hover:text-primary" href="highlight-marketing.html">Marketing</a>
+                <a class="font-label-caps text-[11px] text-on-surface-variant hover:text-primary" href="highlight-pr.html">PR</a>
+                <a class="font-label-caps text-[11px] text-on-surface-variant hover:text-primary" href="highlight-academy.html">Academy</a>
+            </div>
+        </div>
+        
+        <a class="font-label-caps text-label-caps text-primary py-2 border-b border-primary/10" href="#clientes">CLIENTES</a>
+        <a class="font-label-caps text-label-caps text-primary py-2 border-b border-primary/10" href="#nosotros">NOSOTROS</a>
+        <a class="font-label-caps text-label-caps text-primary py-2 border-b border-primary/10" href="#contact">Contacto</a>
+    </nav>
+</div>
+
 <script>
         let lastScroll = 0;
         const nav = document.getElementById('main-nav');
@@ -437,15 +468,65 @@
         window.addEventListener('scroll', () => {
             const currentScroll = window.pageYOffset;
             if (currentScroll <= 0) {
-                nav.style.transform = 'translateY(0)';
+                if (nav) nav.style.transform = 'translateY(0)';
                 return;
             }
             if (currentScroll > lastScroll && currentScroll > 80) {
-                nav.style.transform = 'translateY(-100%)';
+                if (nav) nav.style.transform = 'translateY(-100%)';
             } else {
-                nav.style.transform = 'translateY(0)';
+                if (nav) nav.style.transform = 'translateY(0)';
             }
             lastScroll = currentScroll;
+        });
+
+        // Mobile Menu Drawer functionality
+        const mobileMenuTrigger = document.getElementById('mobile-menu-trigger');
+        const mobileMenuClose = document.getElementById('mobile-menu-close');
+        const mobileNavDrawer = document.getElementById('mobile-nav-drawer');
+        const mobileNavOverlay = document.getElementById('mobile-nav-overlay');
+        const mobileServicesTrigger = document.getElementById('mobile-services-trigger');
+        const mobileServicesMenu = document.getElementById('mobile-services-menu');
+        const mobileServicesArrow = document.getElementById('mobile-services-arrow');
+        const mobileDropdown = mobileServicesTrigger ? mobileServicesTrigger.closest('.mobile-dropdown') : null;
+
+        function openMobileMenu() {
+            if (mobileNavDrawer) mobileNavDrawer.classList.add('is-active');
+            if (mobileNavOverlay) mobileNavOverlay.classList.add('is-active');
+            document.body.style.overflow = 'hidden';
+        }
+
+        function closeMobileMenu() {
+            if (mobileNavDrawer) mobileNavDrawer.classList.remove('is-active');
+            if (mobileNavOverlay) mobileNavOverlay.classList.remove('is-active');
+            document.body.style.overflow = '';
+        }
+
+        if (mobileMenuTrigger) {
+            mobileMenuTrigger.addEventListener('click', openMobileMenu);
+        }
+        if (mobileMenuClose) {
+            mobileMenuClose.addEventListener('click', closeMobileMenu);
+        }
+        if (mobileNavOverlay) {
+            mobileNavOverlay.addEventListener('click', closeMobileMenu);
+        }
+
+        if (mobileServicesTrigger) {
+            mobileServicesTrigger.addEventListener('click', (e) => {
+                e.stopPropagation();
+                if (mobileDropdown) {
+                    const isOpen = mobileDropdown.classList.contains('is-open');
+                    mobileDropdown.classList.toggle('is-open', !isOpen);
+                    if (mobileServicesArrow) {
+                        mobileServicesArrow.style.transform = isOpen ? 'rotate(0deg)' : 'rotate(180deg)';
+                    }
+                }
+            });
+        }
+
+        const mobileLinks = mobileNavDrawer ? mobileNavDrawer.querySelectorAll('a[href^="#"]') : [];
+        mobileLinks.forEach(link => {
+            link.addEventListener('click', closeMobileMenu);
         });
     </script>
 </body></html>

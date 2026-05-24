@@ -108,11 +108,11 @@ body {
 }
 
 main.pt-20 > section.min-h-\[795px\] > div.grid > div.lg\:col-span-8 > h1.font-display-xl > span.bold-font {
-    font-size: 130px;
+    font-size: clamp(42px, 10vw, 130px);
 }
 
 main.pt-20 > section.min-h-\[795px\] > div.grid > div.lg\:col-span-8 > h1.font-display-xl > span.thin-font {
-    font-size: 130px;
+    font-size: clamp(42px, 10vw, 130px);
 }
 
 .hl-nav-dropdown__menu {
@@ -233,6 +233,13 @@ main.pt-20 > section.min-h-\[795px\] > div.grid > div.lg\:col-span-8 > h1.font-d
     .hl-clients-carousel__track { gap: 0; padding: 0 6px; }
 }
 
+@media (max-width: 640px) {
+    .hl-clients-carousel__slide { width: 180px; height: 100px; margin-right: 4px; }
+    .hl-clients-carousel__slide--small { width: 120px; height: 60px; }
+    .hl-clients-carousel__slide--tight { margin-right: 1px; }
+    .hl-clients-carousel__track { padding: 0 4px; }
+}
+
 @media (prefers-reduced-motion: reduce) {
     .hl-clients-carousel__track {
         animation: none;
@@ -241,4 +248,49 @@ main.pt-20 > section.min-h-\[795px\] > div.grid > div.lg\:col-span-8 > h1.font-d
         -webkit-overflow-scrolling: touch;
     }
     .hl-clients-carousel__slide { scroll-snap-align: start; }
+}
+
+/* Mobile Navigation Drawer */
+.mobile-nav-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    backdrop-filter: blur(4px);
+    z-index: 90;
+    opacity: 0;
+    visibility: hidden;
+    transition: opacity 0.3s ease, visibility 0.3s ease;
+}
+.mobile-nav-overlay.is-active {
+    opacity: 1;
+    visibility: visible;
+}
+.mobile-nav-drawer {
+    position: fixed;
+    top: 0;
+    right: 0;
+    width: 300px;
+    height: 100%;
+    background-color: #f9f9f9;
+    border-left: 1px solid #000000;
+    z-index: 100;
+    transform: translateX(100%);
+    transition: transform 0.3s cubic-bezier(0.16, 1, 0.3, 1);
+    display: flex;
+    flex-direction: column;
+    padding: 24px;
+}
+.mobile-nav-drawer.is-active {
+    transform: translateX(0);
+}
+.mobile-dropdown-menu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out;
+}
+.mobile-dropdown.is-open .mobile-dropdown-menu {
+    max-height: 200px;
 }
