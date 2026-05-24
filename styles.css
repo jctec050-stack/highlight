@@ -96,7 +96,7 @@ body {
 
 .hl-service-division-logo__descriptor {
     align-self: flex-end;
-    margin-top: 10px;
+    margin-top: 24px;
     font-size: 13px;
     font-weight: 800;
     letter-spacing: 0.18em;
@@ -107,12 +107,18 @@ body {
     text-transform: lowercase;
 }
 
+.hl-service-division-logo__descriptor--academy {
+    align-self: center;
+    font-size: clamp(16px, 2.5vw, 24px);
+    margin-top: 16px;
+}
+
 main.pt-20 > section.min-h-\[795px\] > div.grid > div.lg\:col-span-8 > h1.font-display-xl > span.bold-font {
     font-size: clamp(42px, 10vw, 130px);
 }
 
 main.pt-20 > section.min-h-\[795px\] > div.grid > div.lg\:col-span-8 > h1.font-display-xl > span.thin-font {
-    font-size: clamp(42px, 10vw, 130px);
+    font-size: clamp(42px, 8vw, 60px);
 }
 
 .hl-nav-dropdown__menu {
@@ -226,28 +232,66 @@ main.pt-20 > section.min-h-\[795px\] > div.grid > div.lg\:col-span-8 > h1.font-d
 }
 
 @media (max-width: 768px) {
-    .hl-clients-carousel__slide { width: 360px; height: 210px; }
-    .hl-clients-carousel__slide { margin-right: 6px; }
-    .hl-clients-carousel__slide--tight { margin-right: 2px; }
-    .hl-clients-carousel__slide--small { width: 200px; height: 110px; }
-    .hl-clients-carousel__track { gap: 0; padding: 0 6px; }
+    .hl-clients-carousel__track {
+        animation: hl-clients-scroll-mobile 25s linear infinite;
+        padding: 0 6px;
+    }
+    
+    @keyframes hl-clients-scroll-mobile {
+        0% { transform: translateX(0); }
+        100% { transform: translateX(calc(-100% / 2)); }
+    }
+
+    .hl-clients-carousel__slide {
+        width: 320px;
+        height: 180px;
+        margin-right: 4px;
+    }
+
+    .hl-clients-carousel__slide--small {
+        width: 180px;
+        height: 100px;
+    }
 }
 
 @media (max-width: 640px) {
-    .hl-clients-carousel__slide { width: 180px; height: 100px; margin-right: 4px; }
-    .hl-clients-carousel__slide--small { width: 120px; height: 60px; }
-    .hl-clients-carousel__slide--tight { margin-right: 1px; }
-    .hl-clients-carousel__track { padding: 0 4px; }
+    .hl-clients-carousel__track {
+        padding: 0 4px;
+    }
+
+    .hl-clients-carousel__slide {
+        width: 200px;
+        height: 120px;
+        margin-right: 4px;
+    }
+
+    .hl-clients-carousel__slide--small {
+        width: 140px;
+        height: 80px;
+    }
+
+    .hl-clients-carousel__slide--tight {
+        margin-right: 2px;
+    }
 }
 
 @media (prefers-reduced-motion: reduce) {
     .hl-clients-carousel__track {
         animation: none;
+    }
+
+    .hl-clients-carousel__viewport {
         overflow-x: auto;
-        scroll-snap-type: x mandatory;
         -webkit-overflow-scrolling: touch;
     }
-    .hl-clients-carousel__slide { scroll-snap-align: start; }
+
+    .hl-clients-carousel__track {
+        scroll-snap-type: x mandatory;
+    }
+
+    .hl-clients-carousel__slide {
+        scroll-snap-align: start;
+    }
 }
 
 /* Mobile Navigation Drawer */
@@ -272,7 +316,7 @@ main.pt-20 > section.min-h-\[795px\] > div.grid > div.lg\:col-span-8 > h1.font-d
     position: fixed;
     top: 0;
     right: 0;
-    width: 300px;
+    width: min(92vw, 320px);
     height: 100%;
     background-color: #f9f9f9;
     border-left: 1px solid #000000;
