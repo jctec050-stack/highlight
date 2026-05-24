@@ -131,29 +131,31 @@
 <main class="pt-20">
 <!-- Hero Section: Keep White -->
 <section class="bg-surface w-full" id="inicio">
-<div class="px-6 md:px-gutter max-w-container-max mx-auto border-x border-outline-variant py-12 md:py-20 lg:py-0 lg:min-h-[795px] flex flex-col justify-center">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-gutter items-end">
-<div class="lg:col-span-8">
-<h1 class="font-display-xl text-[60px] md:text-[90px] lg:text-[140px] leading-[0.9] tracking-tighter mb-8 md:mb-12 text-primary flex flex-col">
-<span class="bold-font">ELEVAMOS</span>
-<span class="thin-font">tu marca</span>
+<div class="px-6 md:px-gutter max-w-container-max mx-auto border-x border-outline-variant py-12 md:py-20 lg:py-24 lg:min-h-[795px] flex flex-col justify-center">
+<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-gutter items-stretch">
+<div class="lg:col-span-7 flex flex-col items-center justify-center">
+<div class="w-full max-w-5xl">
+<div aria-label="Carrusel de fotos" class="hl-hero-photo-carousel relative w-full h-[clamp(320px,46vh,520px)] lg:h-[clamp(420px,56vh,640px)]" role="region">
+<div class="hl-hero-photo-carousel__slide absolute inset-0">
+<img alt="Foto del equipo Highlight" class="hl-hero-photo-carousel__img w-full h-full object-contain filter grayscale" decoding="async" loading="lazy" src="images/Foto%201.png"/>
+</div>
+<div class="hl-hero-photo-carousel__slide absolute inset-0">
+<img alt="Foto del equipo Highlight" class="hl-hero-photo-carousel__img w-full h-full object-contain filter grayscale" decoding="async" loading="lazy" src="images/foto2.png"/>
+</div>
+</div>
+</div>
+</div>
+<div class="lg:col-span-5 flex flex-col lg:border-l lg:border-primary lg:p-gutter mt-8 lg:mt-0 pt-8 lg:pt-0 border-t lg:border-t-0 border-primary/20">
+<h1 class="text-primary tracking-tighter leading-[0.9] flex flex-col text-center lg:text-left mb-4">
+<span class="bold-font text-[clamp(34px,4.6vw,72px)]">ELEVAMOS</span>
+<span class="thin-font text-[clamp(24px,3.2vw,44px)]">tu marca</span>
 </h1>
-<p class="font-body-lg text-body-lg max-w-xl text-on-surface-variant mb-8 md:mb-12">
-                        Creemos que destacar no es cuestión de volumen, sino de claridad. Por eso trabajamos para que cada proyecto encuentre su luz propia, un diferencial auténtico que lo posicione con fuerza en el mercado.
-                        <br><br>
-                        Nos mueve la convicción de que cuando una marca logra resaltar desde su esencia, conecta más profundo, inspira más fuerte y crece de manera sostenible.
-                    </p>
-<div class="flex gap-4">
-<a class="bg-primary text-on-primary px-8 py-4 md:px-10 md:py-5 font-label-caps text-label-caps tracking-widest transition-letter-spacing duration-300 inline-flex items-center w-full justify-center md:w-auto md:justify-start" href="#servicios">
-                            VER SERVICIOS
-                        </a>
-</div>
-</div>
-<div class="lg:col-span-4 lg:border-l lg:border-primary lg:p-gutter mt-8 lg:mt-0 pt-8 lg:pt-0 border-t lg:border-t-0 border-primary/20">
+<div class="mt-8 lg:mt-auto">
 <div class="font-label-caps text-label-caps text-primary mb-4">EST.2023</div>
 <p class="text-footer-tiny font-footer-tiny uppercase tracking-widest text-on-surface-variant leading-relaxed">
                         En un mundo donde las marcas compiten por llamar la atención, en Highlight elegimos un camino diferente: no hacemos ruido, iluminamos.
                     </p>
+</div>
 </div>
 </div>
 </div>
@@ -214,7 +216,7 @@
 </div>
 </div>
 <!-- Service Card 3 -->
-<div class="border-b border-on-primary/20 md:border-b-0 p-6 md:p-gutter flex flex-col justify-between group hover:bg-surface transition-colors duration-500 min-h-[350px] md:min-h-[400px]" id="servicio-academy">
+<div class="border-b border-on-primary/20 md:border-r md:border-on-primary/20 p-6 md:p-gutter flex flex-col justify-between group hover:bg-surface transition-colors duration-500 min-h-[350px] md:min-h-[400px]" id="servicio-academy">
 <div class="w-full h-28 flex items-center justify-center">
 <div class="relative inline-block scale-125 md:scale-150 origin-center leading-none text-on-primary group-hover:text-primary transition-colors duration-500">
 <div class="flex items-baseline tracking-tight">
@@ -317,7 +319,7 @@
 <span class="font-label-caps text-label-caps text-on-primary block mb-4 opacity-70">SIGUENOS</span>
 <ul class="flex items-center gap-6">
 <li>
-<a aria-label="Instagram" class="text-on-primary/80 hover:text-on-primary transition-colors duration-200 inline-flex" href="#">
+<a aria-label="Instagram" class="text-on-primary/80 hover:text-on-primary transition-colors duration-200 inline-flex" href="https://www.instagram.com/highlightpy/" rel="noopener noreferrer" target="_blank">
 <svg aria-hidden="true" class="w-6 h-6" fill="none" viewBox="0 0 24 24">
 <path d="M7.5 2.75h9A4.75 4.75 0 0 1 21.25 7.5v9A4.75 4.75 0 0 1 16.5 21.25h-9A4.75 4.75 0 0 1 2.75 16.5v-9A4.75 4.75 0 0 1 7.5 2.75Z" stroke="currentColor" stroke-width="1.5"/>
 <path d="M12 8.25A3.75 3.75 0 1 1 8.25 12 3.75 3.75 0 0 1 12 8.25Z" stroke="currentColor" stroke-width="1.5"/>
@@ -384,6 +386,10 @@
         <a class="font-label-caps text-label-caps text-primary py-2 border-b border-primary/10" href="contacto.html">Contacto</a>
     </nav>
 </div>
+
+<a aria-label="WhatsApp" class="hl-whatsapp-float" href="https://wa.me/595993277464" rel="noopener noreferrer" target="_blank">
+    <img alt="" aria-hidden="true" src="images/whatsapp-128-svgrepo-com.svg"/>
+</a>
 
 <script>
         let lastScroll = 0;
