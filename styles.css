@@ -488,3 +488,75 @@ main.pt-20 > section.min-h-\[795px\] > div.grid > div.lg\:col-span-8 > h1.font-d
 .mobile-dropdown.is-open .mobile-dropdown-menu {
     max-height: 200px;
 }
+
+/* Neo-Brutalist Utilities for Conversion & UI */
+.neo-brutalism-card {
+    transition: transform 0.25s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.25s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.25s ease;
+}
+
+.neo-brutalism-card:hover {
+    transform: translate(-6px, -6px);
+    box-shadow: 6px 6px 0px 0px currentColor;
+}
+
+.neo-brutalism-btn-accent {
+    background-color: #000000;
+    color: #ffffff;
+    border: 1px solid #000000;
+    font-weight: 600;
+    border-radius: 9999px;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease;
+}
+
+.neo-brutalism-btn-accent:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.1);
+    background-color: #222222;
+}
+
+.neo-brutalism-btn-secondary {
+    background-color: transparent;
+    color: currentColor;
+    border: 1px solid currentColor;
+    opacity: 0.85;
+    font-weight: 600;
+    border-radius: 9999px;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1), box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1), background-color 0.2s ease, opacity 0.2s ease;
+}
+
+.neo-brutalism-btn-secondary:hover {
+    transform: translateY(-2px);
+    opacity: 1;
+    box-shadow: 0 6px 16px rgba(0, 0, 0, 0.04);
+    background-color: rgba(0, 0, 0, 0.03);
+}
+
+.bg-primary .neo-brutalism-btn-secondary:hover {
+    background-color: rgba(255, 255, 255, 0.05);
+}
+
+/* Header Contact Button Refinement */
+header a[href="contacto.html"] {
+    background-color: #000000 !important;
+    color: #ffffff !important;
+    border: 1px solid #000000 !important;
+    border-radius: 9999px !important;
+    font-weight: 600 !important;
+    padding-left: 1.5rem !important;
+    padding-right: 1.5rem !important;
+    padding-top: 0.5rem !important;
+    padding-bottom: 0.5rem !important;
+    transition: transform 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important, box-shadow 0.2s cubic-bezier(0.16, 1, 0.3, 1) !important, background-color 0.2s ease !important, color 0.2s ease !important;
+}
+
+header a[href="contacto.html"]:hover {
+    transform: translateY(-1.5px) !important;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1) !important;
+    background-color: #222222 !important;
+    color: #ffffff !important;
+}
+
+header a[href="contacto.html"]:active {
+    transform: translateY(0) !important;
+}
+
