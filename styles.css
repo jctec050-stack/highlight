@@ -9,6 +9,14 @@
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
 
+#servicio-academy > div > div > div > span.italic {
+    font-size: 16px;
+}
+
+#servicio-academy > div > div > div > span.not-italic {
+    font-size: 16px;
+}
+
 body {
     min-height: max(884px, 100dvh);
 }
