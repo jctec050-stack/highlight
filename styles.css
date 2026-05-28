@@ -1,10 +1,10 @@
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;700&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700&display=swap');
 
 .material-symbols-outlined {
     font-variation-settings: 'FILL' 0, 'wght' 300, 'GRAD' 0, 'opsz' 24;
 }
-.thin-font { font-family: 'Montserrat', Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; font-weight: 100; }
-.bold-font { font-family: 'Montserrat', Inter, system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; font-weight: 700; }
+.thin-font { font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; font-weight: 100; }
+.bold-font { font-family: 'Montserrat', system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif; font-weight: 700; }
 .transition-letter-spacing:hover { letter-spacing: 0.25em; }
 .no-scrollbar::-webkit-scrollbar { display: none; }
 .no-scrollbar { -ms-overflow-style: none; scrollbar-width: none; }
