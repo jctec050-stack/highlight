@@ -1,0 +1,648 @@
+<!DOCTYPE html>
+<html class="light" lang="es">
+<head>
+    <meta charset="utf-8"/>
+    <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+    <title>Admin Dashboard | Highlight</title>
+    <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700&display=swap" rel="stylesheet"/>
+    <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet"/>
+    <link href="styles.css?v=2" rel="stylesheet"/>
+    
+    <script id="tailwind-config">
+        tailwind.config = {
+            darkMode: "class",
+            theme: {
+                extend: {
+                    colors: {
+                        "surface-dim": "#dadada",
+                        "surface": "#f9f9f9",
+                        "primary": "#000000",
+                        "on-primary": "#ffffff",
+                        "background": "#f9f9f9",
+                        "on-background": "#1a1c1c",
+                        "outline": "#7e7576",
+                        "outline-variant": "#cfc4c5",
+                    },
+                    fontFamily: {
+                        "body-md": ["Montserrat", "sans-serif"],
+                        "label-caps": ["Montserrat", "sans-serif"],
+                        "headline-lg": ["Montserrat", "sans-serif"],
+                    }
+                },
+            },
+        }
+    </script>
+    <style>
+        .neo-brutalism-card {
+            border: 2px solid #000;
+            box-shadow: 4px 4px 0px 0px #000;
+            transition: all 0.2s ease;
+        }
+        .neo-brutalism-card:hover {
+            transform: translate(-2px, -2px);
+            box-shadow: 6px 6px 0px 0px #000;
+        }
+        .neo-brutalism-btn {
+            border: 2px solid #000;
+            box-shadow: 3px 3px 0px 0px #000;
+            transition: all 0.1s ease;
+        }
+        .neo-brutalism-btn:active {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px 0px #000;
+        }
+        .neo-brutalism-btn-danger {
+            border: 2px solid #000;
+            background-color: #ffdad6;
+            color: #93000a;
+            box-shadow: 3px 3px 0px 0px #000;
+            transition: all 0.1s ease;
+        }
+        .neo-brutalism-btn-danger:active {
+            transform: translate(2px, 2px);
+            box-shadow: 1px 1px 0px 0px #000;
+        }
+        .bold-font { font-weight: 700; }
+        .thin-font { font-weight: 300; }
+    </style>
+</head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col">
+    <!-- Navigation Bar -->
+    <header class="border-b border-primary bg-surface h-20 flex items-center z-50">
+        <div class="flex justify-between items-center px-6 md:px-8 max-w-7xl mx-auto w-full">
+            <div class="text-headline-md tracking-tighter text-primary flex items-baseline select-none">
+                <span class="bold-font text-2xl">high</span><span class="thin-font text-2xl">light</span>
+                <span class="ml-2 font-label-caps text-xs px-2 py-0.5 bg-primary text-on-primary uppercase tracking-widest">Admin</span>
+            </div>
+            <button id="btn-logout" class="hidden neo-brutalism-btn px-4 py-2 font-label-caps text-xs uppercase tracking-wider bg-surface text-primary hover:bg-black hover:text-white transition-all duration-200">
+                Cerrar Sesión
+            </button>
+        </div>
+    </header>
+
+    <main class="flex-grow flex items-center justify-center p-6">
+        <!-- Loader -->
+        <div id="loader" class="flex flex-col items-center gap-4">
+            <div class="animate-spin rounded-full h-12 w-12 border-t-2 border-b-2 border-primary"></div>
+            <p class="font-label-caps text-xs tracking-widest text-primary/60">CARGANDO...</p>
+        </div>
+
+        <!-- Login Container -->
+        <section id="login-container" class="hidden w-full max-w-md">
+            <div class="bg-surface neo-brutalism-card p-8 md:p-10 flex flex-col gap-6">
+                <div class="border-b border-primary/20 pb-4">
+                    <h2 class="text-xl font-bold tracking-tight text-primary uppercase">INICIA SESIÓN</h2>
+                    <p class="text-xs text-primary/60 mt-1">Panel de control de contenidos de Highlight</p>
+                </div>
+                <form id="login-form" class="flex flex-col gap-4">
+                    <div>
+                        <label for="email" class="block font-label-caps text-xs tracking-wider mb-2 font-bold">CORREO ELECTRÓNICO</label>
+                        <input type="email" id="email" required class="w-full border-2 border-primary bg-white p-3 text-sm focus:outline-none focus:ring-0 focus:border-primary transition-colors"/>
+                    </div>
+                    <div>
+                        <label for="password" class="block font-label-caps text-xs tracking-wider mb-2 font-bold">CONTRASEÑA</label>
+                        <input type="password" id="password" required class="w-full border-2 border-primary bg-white p-3 text-sm focus:outline-none focus:ring-0 focus:border-primary transition-colors"/>
+                    </div>
+                    <div id="login-error" class="hidden text-xs text-red-600 font-bold bg-red-50 border border-red-200 p-3 rounded">
+                        Credenciales incorrectas. Inténtalo de nuevo.
+                    </div>
+                    <button type="submit" class="neo-brutalism-btn w-full bg-primary text-on-primary p-4 font-label-caps text-sm tracking-widest hover:bg-neutral-800 transition-colors uppercase font-bold mt-2">
+                        Ingresar
+                    </button>
+                </form>
+            </div>
+        </section>
+
+        <!-- Dashboard Container -->
+        <section id="dashboard-container" class="hidden w-full max-w-7xl self-start py-8">
+            <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+                
+                <!-- Left Column: Controls and Form -->
+                <div class="lg:col-span-5 flex flex-col gap-8">
+                    <!-- Section Selector Card -->
+                    <div class="bg-surface neo-brutalism-card p-6 flex flex-col gap-4">
+                        <label for="section-select" class="block font-label-caps text-xs tracking-wider font-bold">SELECCIONAR SECCIÓN A EDITAR</label>
+                        <select id="section-select" class="w-full border-2 border-primary bg-white p-3 text-sm font-semibold focus:outline-none focus:ring-0 focus:border-primary">
+                            <option value="hero_carousel">Carrusel del Héroe (Inicio)</option>
+                            <option value="quotes_photo">Foto de la Sección Frase</option>
+                            <option value="marketing_projects">Últimos Proyectos (Marketing)</option>
+                            <option value="pr_projects">Últimos Proyectos (PR)</option>
+                            <option value="academy_courses">Cursos (Academy)</option>
+                        </select>
+                    </div>
+
+                    <!-- Upload Form Card -->
+                    <div class="bg-surface neo-brutalism-card p-6 flex flex-col gap-6">
+                        <div class="border-b border-primary/20 pb-2">
+                            <h3 class="font-bold uppercase text-sm tracking-wider" id="form-title">AGREGAR CONTENIDO</h3>
+                        </div>
+                        
+                        <form id="upload-form" class="flex flex-col gap-4">
+                            <!-- Image Input -->
+                            <div>
+                                <label class="block font-label-caps text-xs tracking-wider mb-2 font-bold">SELECCIONAR IMAGEN(ES)</label>
+                                <input type="file" id="media-file" accept="image/*" multiple class="w-full border-2 border-dashed border-primary/40 hover:border-primary bg-white p-4 text-xs transition-colors cursor-pointer"/>
+                                <p class="text-[10px] text-primary/50 mt-1">Formatos sugeridos: JPG, PNG, WEBP. Límite de tamaño: 5MB. Puedes seleccionar varias para Carrusel o Clientes.</p>
+                                <p id="resolution-hint" class="text-[10px] text-primary/80 font-bold mt-2 bg-primary/5 p-2 border border-primary/20">Resolución recomendada: 1920x1080px (16:9)</p>
+                            </div>
+
+                            <!-- Text Fields Container (Toggled dynamically) -->
+                            <div id="dynamic-fields" class="flex flex-col gap-4">
+                                <!-- Title -->
+                                <div class="field-group" data-for="text-heavy">
+                                    <label for="item-title" class="block font-label-caps text-xs tracking-wider mb-2 font-bold">TÍTULO / CASO</label>
+                                    <input type="text" id="item-title" placeholder="Ej: Caso Destacado" class="w-full border-2 border-primary bg-white p-3 text-sm focus:outline-none focus:ring-0 focus:border-primary"/>
+                                </div>
+                                <!-- Subtitle -->
+                                <div class="field-group" data-for="text-heavy">
+                                    <label for="item-subtitle" class="block font-label-caps text-xs tracking-wider mb-2 font-bold">SUBTÍTULO / SECCIÓN</label>
+                                    <input type="text" id="item-subtitle" placeholder="Ej: PROYECTO 01" class="w-full border-2 border-primary bg-white p-3 text-sm focus:outline-none focus:ring-0 focus:border-primary"/>
+                                </div>
+                                <!-- Description -->
+                                <div class="field-group" data-for="text-heavy">
+                                    <label for="item-desc" class="block font-label-caps text-xs tracking-wider mb-2 font-bold">DESCRIPCIÓN</label>
+                                    <textarea id="item-desc" rows="3" placeholder="Describe brevemente el contenido..." class="w-full border-2 border-primary bg-white p-3 text-sm focus:outline-none focus:ring-0 focus:border-primary"></textarea>
+                                </div>
+                                <!-- Extra Info (whatsapp or client/date) -->
+                                <div class="field-group" data-for="text-heavy">
+                                    <label for="item-extra" id="label-extra" class="block font-label-caps text-xs tracking-wider mb-2 font-bold">INFORMACIÓN ADICIONAL / ENLACE</label>
+                                    <input type="text" id="item-extra" placeholder="Ej: Cliente / Industria / Fecha" class="w-full border-2 border-primary bg-white p-3 text-sm focus:outline-none focus:ring-0 focus:border-primary"/>
+                                </div>
+                                <!-- Show text checkbox -->
+                                <div class="field-group flex items-center gap-2 py-2" data-for="text-heavy">
+                                    <input type="checkbox" id="item-show-text" checked class="w-5 h-5 border-2 border-primary text-black focus:ring-0"/>
+                                    <label for="item-show-text" class="font-label-caps text-xs tracking-wider font-bold cursor-pointer">MOSTRAR TEXTO SUPERPUESTO</label>
+                                </div>
+                            </div>
+
+                            <!-- Common Fields: Display Order, Alt Text -->
+                            <div id="common-fields" class="flex flex-col gap-4">
+                                <div id="group-alt-text">
+                                    <label for="item-alt" class="block font-label-caps text-xs tracking-wider mb-2 font-bold">TEXTO ALTERNATIVO (ALT)</label>
+                                    <input type="text" id="item-alt" placeholder="Ej: Foto de equipo en oficina" class="w-full border-2 border-primary bg-white p-3 text-sm focus:outline-none focus:ring-0 focus:border-primary"/>
+                                </div>
+                                <div id="group-order">
+                                    <label for="item-order" class="block font-label-caps text-xs tracking-wider mb-2 font-bold">ORDEN DE APARICIÓN</label>
+                                    <input type="number" id="item-order" value="0" min="0" class="w-full border-2 border-primary bg-white p-3 text-sm focus:outline-none focus:ring-0 focus:border-primary"/>
+                                </div>
+                            </div>
+
+                            <button type="submit" id="btn-submit" class="neo-brutalism-btn w-full bg-primary text-on-primary p-4 font-label-caps text-sm tracking-widest hover:bg-neutral-800 transition-colors uppercase font-bold mt-4">
+                                GUARDAR CONTENIDO
+                            </button>
+                        </form>
+                    </div>
+                </div>
+
+                <!-- Right Column: Live List / Preview -->
+                <div class="lg:col-span-7 bg-surface neo-brutalism-card p-6 min-h-[400px] flex flex-col">
+                    <div class="border-b border-primary/20 pb-4 mb-6 flex justify-between items-center">
+                        <h3 class="font-bold uppercase text-sm tracking-wider">CONTENIDO ACTUAL EN ESTA SECCIÓN</h3>
+                        <span id="items-count" class="font-label-caps text-xs bg-primary/10 text-primary px-3 py-1 rounded-full font-bold">0 ítems</span>
+                    </div>
+
+                    <!-- Empty State -->
+                    <div id="empty-state" class="flex-grow flex flex-col items-center justify-center text-center p-8 gap-4 border-2 border-dashed border-primary/20">
+                        <span class="material-symbols-outlined text-4xl text-primary/30">photo_library</span>
+                        <p class="text-sm font-semibold text-primary/50">No hay contenido guardado en esta sección aún.</p>
+                    </div>
+
+                    <!-- Items Grid -->
+                    <div id="items-grid" class="hidden grid grid-cols-1 md:grid-cols-2 gap-6">
+                        <!-- Items rendered here via JS -->
+                    </div>
+                </div>
+
+            </div>
+        </section>
+    </main>
+
+    <!-- Supabase CDN Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+
+    <script>
+        // DOM Elements
+        const loader = document.getElementById('loader');
+        const loginContainer = document.getElementById('login-container');
+        const dashboardContainer = document.getElementById('dashboard-container');
+        const loginForm = document.getElementById('login-form');
+        const loginError = document.getElementById('login-error');
+        const btnLogout = document.getElementById('btn-logout');
+        
+        const sectionSelect = document.getElementById('section-select');
+        const formTitle = document.getElementById('form-title');
+        const uploadForm = document.getElementById('upload-form');
+        const mediaFileInput = document.getElementById('media-file');
+        const itemTitleInput = document.getElementById('item-title');
+        const itemSubtitleInput = document.getElementById('item-subtitle');
+        const itemDescInput = document.getElementById('item-desc');
+        const itemExtraInput = document.getElementById('item-extra');
+        const labelExtra = document.getElementById('label-extra');
+        const itemShowTextCheckbox = document.getElementById('item-show-text');
+        const itemAltInput = document.getElementById('item-alt');
+        const itemOrderInput = document.getElementById('item-order');
+        
+        const itemsCountSpan = document.getElementById('items-count');
+        const emptyState = document.getElementById('empty-state');
+        const itemsGrid = document.getElementById('items-grid');
+        const btnSubmit = document.getElementById('btn-submit');
+
+        let currentSession = null;
+
+        // Init App and Auth checks
+        async function checkUser() {
+            try {
+                if (!supabaseClient) {
+                    alert("Por favor configura tus credenciales de Supabase en 'supabase-config.js' primero.");
+                    showLoading(false);
+                    return;
+                }
+                const { data: { session }, error } = await supabaseClient.auth.getSession();
+                
+                if (error) throw error;
+                currentSession = session;
+                
+                if (session) {
+                    showDashboard(true);
+                    loadSectionData();
+                } else {
+                    showLogin(true);
+                }
+            } catch (err) {
+                console.error("Auth check error:", err);
+                showLogin(true);
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        function showLoading(show) {
+            loader.classList.toggle('hidden', !show);
+        }
+
+        function showLogin(show) {
+            loginContainer.classList.toggle('hidden', !show);
+            dashboardContainer.classList.add('hidden');
+            btnLogout.classList.add('hidden');
+        }
+
+        function showDashboard(show) {
+            dashboardContainer.classList.toggle('hidden', !show);
+            btnLogout.classList.toggle('hidden', !show);
+            loginContainer.classList.add('hidden');
+        }
+
+        // Login Handler
+        loginForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            showLoading(true);
+            loginError.classList.add('hidden');
+
+            const email = document.getElementById('email').value;
+            const password = document.getElementById('password').value;
+
+            try {
+                const { data, error } = await supabaseClient.auth.signInWithPassword({ email, password });
+                if (error) throw error;
+                
+                currentSession = data.session;
+                showDashboard(true);
+                loadSectionData();
+            } catch (err) {
+                console.error("Login error:", err);
+                loginError.classList.remove('hidden');
+            } finally {
+                showLoading(false);
+            }
+        });
+
+        // Logout Handler
+        btnLogout.addEventListener('click', async () => {
+            showLoading(true);
+            await supabaseClient.auth.signOut();
+            currentSession = null;
+            showLogin(true);
+            showLoading(false);
+        });
+
+        // Adjust form fields based on selected section
+        function updateFormFields() {
+            const section = sectionSelect.value;
+            const textHeavyFields = document.querySelectorAll('[data-for="text-heavy"]');
+            const groupAltText = document.getElementById('group-alt-text');
+            const groupOrder = document.getElementById('group-order');
+
+            formTitle.textContent = `AGREGAR A: ${sectionSelect.options[sectionSelect.selectedIndex].text.toUpperCase()}`;
+
+            // Reset forms
+            uploadForm.reset();
+            itemOrderInput.value = "0";
+
+            // Update Resolution Hint dynamically
+            const resolutionHint = document.getElementById('resolution-hint');
+            let hintText = '';
+            switch(section) {
+                case 'hero_carousel':
+                    hintText = 'Resolución recomendada: 1920x1080px (16:9) o 1200x800px (3:2) - Fotos de portada.';
+                    break;
+                case 'quotes_photo':
+                    hintText = 'Resolución recomendada: 800x1000px (Relación 4:5 vertical) - Foto de la sección frase.';
+                    break;
+                case 'clients_carousel':
+                    hintText = 'Resolución recomendada: 400x200px (2:1) - Logotipo de cliente (Se sugiere fondo transparente PNG).';
+                    break;
+                case 'marketing_projects':
+                case 'pr_projects':
+                    hintText = 'Resolución recomendada: 800x600px (4:3) u 800x800px (1:1) - Imagen de fondo de proyecto.';
+                    break;
+                case 'academy_courses':
+                    hintText = 'Resolución recomendada: 800x600px (4:3) u 800x800px (1:1) - Imagen de fondo de curso.';
+                    break;
+                default:
+                    hintText = 'Límite de tamaño: 5MB.';
+            }
+            if (resolutionHint) {
+                resolutionHint.textContent = hintText;
+            }
+
+            if (section === 'hero_carousel' || section === 'clients_carousel') {
+                // Image only + basic meta
+                textHeavyFields.forEach(el => el.classList.add('hidden'));
+                groupAltText.classList.remove('hidden');
+                groupOrder.classList.remove('hidden');
+            } else if (section === 'quotes_photo') {
+                // Static photo: No text, no order needed
+                textHeavyFields.forEach(el => el.classList.add('hidden'));
+                groupAltText.classList.remove('hidden');
+                groupOrder.classList.add('hidden');
+            } else {
+                // Dynamic projects/courses (requires titles/texts)
+                textHeavyFields.forEach(el => el.classList.remove('hidden'));
+                groupAltText.classList.remove('hidden');
+                groupOrder.classList.remove('hidden');
+
+                if (section === 'academy_courses') {
+                    labelExtra.textContent = "ENLACE DE INSCRIPCIÓN (WHATSAPP O WEB)";
+                    itemExtraInput.placeholder = "https://wa.me/595993277464...";
+                    itemTitleInput.placeholder = "Ej: CURSO 1";
+                    itemSubtitleInput.placeholder = "Ej: Especialización Digital";
+                } else {
+                    labelExtra.textContent = "INFORMACIÓN ADICIONAL / META-INFO";
+                    itemExtraInput.placeholder = "Ej: Cliente / Industria / Fecha";
+                    itemTitleInput.placeholder = "Ej: Caso Destacado";
+                    itemSubtitleInput.placeholder = "Ej: PROYECTO 01";
+                }
+            }
+        }
+
+        sectionSelect.addEventListener('change', () => {
+            updateFormFields();
+            loadSectionData();
+        });
+
+        // Fetch section items from Database
+        async function loadSectionData() {
+            const section = sectionSelect.value;
+            itemsGrid.innerHTML = '';
+            showLoading(true);
+
+            try {
+                let query = supabaseClient
+                    .from('section_media')
+                    .select('*')
+                    .eq('section', section);
+                
+                if (section !== 'quotes_photo') {
+                    query = query.order('display_order', { ascending: true });
+                }
+
+                const { data, error } = await query;
+                if (error) throw error;
+
+                itemsCountSpan.textContent = `${data.length} ítems`;
+
+                if (data.length === 0) {
+                    emptyState.classList.remove('hidden');
+                    itemsGrid.classList.add('hidden');
+                } else {
+                    emptyState.classList.add('hidden');
+                    itemsGrid.classList.remove('hidden');
+
+                    data.forEach(item => {
+                        renderItemCard(item);
+                    });
+                }
+            } catch (err) {
+                console.error("Error fetching data:", err);
+                alert("Error al cargar los datos de la base de datos. Verifica la estructura de la tabla.");
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        // Render card preview in dashboard
+        function renderItemCard(item) {
+            const isTextHeavy = ['marketing_projects', 'pr_projects', 'academy_courses'].includes(item.section);
+            
+            const card = document.createElement('div');
+            card.className = "bg-white border-2 border-primary p-4 flex flex-col justify-between gap-4 relative";
+            
+            let cardContent = `
+                <div class="w-full h-32 bg-gray-100 overflow-hidden border border-primary relative flex items-center justify-center">
+                    <img src="${item.image_url}" class="w-full h-full object-cover grayscale" alt="${item.alt_text || 'img'}"/>
+                    ${isTextHeavy && item.show_text ? `<div class="absolute inset-0 bg-black/60 flex items-center justify-center text-white p-2 text-center text-[10px] font-semibold">Texto superpuesto activo</div>` : ''}
+                </div>
+                <div class="flex flex-col gap-1">
+            `;
+
+            if (isTextHeavy) {
+                cardContent += `
+                    <div class="text-[10px] font-bold text-primary/60 tracking-wider">${item.subtitle || 'Sin Subtítulo'}</div>
+                    <div class="text-xs font-bold uppercase text-primary">${item.title || 'Sin Título'}</div>
+                    <div class="text-[10px] leading-relaxed line-clamp-2 text-primary/70">${item.description || 'Sin Descripción'}</div>
+                    <div class="text-[9px] font-semibold text-primary/50 truncate mt-1">Meta/Enlace: ${item.extra_info || 'Ninguno'}</div>
+                `;
+            } else {
+                cardContent += `
+                    <div class="text-[10px] font-semibold text-primary/70 truncate">Alt: ${item.alt_text || 'Sin texto alternativo'}</div>
+                `;
+            }
+
+            if (item.section !== 'quotes_photo') {
+                cardContent += `<div class="text-[10px] font-bold text-primary bg-surface border border-primary px-2 py-0.5 self-start mt-1">Orden: ${item.display_order}</div>`;
+            }
+
+            cardContent += `
+                </div>
+                <button class="neo-brutalism-btn-danger w-full py-2 font-label-caps text-[10px] font-bold uppercase tracking-wider transition-all" onclick="deleteItem('${item.id}', '${item.image_url}')">
+                    Eliminar
+                </button>
+            `;
+
+            card.innerHTML = cardContent;
+            itemsGrid.appendChild(card);
+        }
+
+        // Upload handler
+        uploadForm.addEventListener('submit', async (e) => {
+            e.preventDefault();
+            
+            const files = mediaFileInput.files;
+            const section = sectionSelect.value;
+            
+            if (files.length === 0) {
+                alert("Debes seleccionar al menos una imagen para subir.");
+                return;
+            }
+
+            if (files.length > 1 && ['marketing_projects', 'pr_projects', 'academy_courses', 'quotes_photo'].includes(section)) {
+                alert("Para esta sección debes subir de a una imagen por vez, ya que cada proyecto/curso/frase requiere sus propias configuraciones de texto individuales.");
+                return;
+            }
+
+            btnSubmit.disabled = true;
+            btnSubmit.textContent = "SUBIENDO...";
+            showLoading(true);
+
+            try {
+                let startOrder = parseInt(itemOrderInput.value) || 0;
+
+                for (let i = 0; i < files.length; i++) {
+                    const file = files[i];
+                    
+                    // 1. Upload file to Storage Bucket
+                    const fileExt = file.name.split('.').pop();
+                    const fileName = `${Date.now()}_${Math.random().toString(36).substring(2, 7)}_${i}.${fileExt}`;
+                    const filePath = `${section}/${fileName}`;
+
+                    const { data: uploadData, error: uploadError } = await supabaseClient.storage
+                        .from('media')
+                        .upload(filePath, file);
+
+                    if (uploadError) throw uploadError;
+
+                    // Get public URL
+                    const { data: { publicUrl } } = supabaseClient.storage
+                        .from('media')
+                        .getPublicUrl(filePath);
+
+                    // 2. Save metadata to DB
+                    const payload = {
+                        section: section,
+                        image_url: publicUrl,
+                        alt_text: files.length > 1 ? file.name.split('.')[0] : (itemAltInput.value || ''),
+                        display_order: startOrder + i
+                    };
+
+                    // If text heavy
+                    if (['marketing_projects', 'pr_projects', 'academy_courses'].includes(section)) {
+                        payload.title = itemTitleInput.value || '';
+                        payload.subtitle = itemSubtitleInput.value || '';
+                        payload.description = itemDescInput.value || '';
+                        payload.extra_info = itemExtraInput.value || '';
+                        payload.show_text = itemShowTextCheckbox.checked;
+                    }
+
+                    // If it's quotes_photo, delete previous quotes_photo records to keep only one
+                    if (section === 'quotes_photo') {
+                        const { data: existing } = await supabaseClient
+                            .from('section_media')
+                            .select('id, image_url')
+                            .eq('section', 'quotes_photo');
+                        
+                        if (existing && existing.length > 0) {
+                            for (const oldItem of existing) {
+                                await deleteItemFromStorage(oldItem.image_url);
+                            }
+                            await supabaseClient
+                                .from('section_media')
+                                .delete()
+                                .eq('section', 'quotes_photo');
+                        }
+                    }
+
+                    const { error: insertError } = await supabaseClient
+                        .from('section_media')
+                        .insert(payload);
+
+                    if (insertError) throw insertError;
+                }
+
+                alert(files.length > 1 ? `${files.length} imágenes subidas con éxito.` : "Contenido guardado con éxito.");
+                uploadForm.reset();
+                mediaFileInput.value = '';
+                loadSectionData();
+
+            } catch (err) {
+                console.error("Upload error:", err);
+                alert("Error al subir el contenido: " + err.message);
+            } finally {
+                btnSubmit.disabled = false;
+                btnSubmit.textContent = "GUARDAR CONTENIDO";
+                showLoading(false);
+            }
+        });
+
+        // Delete Handler
+        async function deleteItem(id, imageUrl) {
+            if (!confirm("¿Estás seguro de que deseas eliminar este contenido? Esta acción no se puede deshacer.")) {
+                return;
+            }
+
+            showLoading(true);
+
+            try {
+                // 1. Delete from database
+                const { error: dbError } = await supabaseClient
+                    .from('section_media')
+                    .delete()
+                    .eq('id', id);
+
+                if (dbError) throw dbError;
+
+                // 2. Delete from storage
+                await deleteItemFromStorage(imageUrl);
+
+                alert("Contenido eliminado con éxito.");
+                loadSectionData();
+
+            } catch (err) {
+                console.error("Delete error:", err);
+                alert("Error al eliminar el contenido: " + err.message);
+                showLoading(false);
+            }
+        }
+
+        // Helper to extract storage path and delete file
+        async function deleteItemFromStorage(imageUrl) {
+            try {
+                // imageUrl looks like: https://[proj].supabase.co/storage/v1/object/public/media/hero_carousel/filename.jpg
+                // We need: hero_carousel/filename.jpg
+                const bucketPrefix = '/storage/v1/object/public/media/';
+                const urlIndex = imageUrl.indexOf(bucketPrefix);
+                
+                if (urlIndex !== -1) {
+                    const storagePath = imageUrl.substring(urlIndex + bucketPrefix.length);
+                    const { error: storageError } = await supabaseClient.storage
+                        .from('media')
+                        .remove([storagePath]);
+                    
+                    if (storageError) {
+                        console.warn("Storage deletion warning (might already be deleted):", storageError);
+                    }
+                }
+            } catch (storageErr) {
+                console.error("Failed to delete file from bucket:", storageErr);
+            }
+        }
+
+        // Start Auth check on load
+        window.addEventListener('DOMContentLoaded', () => {
+            updateFormFields();
+            checkUser();
+        });
+    </script>
+</body>
+</html>

@@ -115,8 +115,8 @@
 <h2 class="font-headline-lg text-headline-lg uppercase text-primary"><span class="bold-font">ULTIMOS</span> <span class="thin-font">PROYECTOS</span></h2>
 <div class="font-label-caps text-label-caps text-on-surface-variant">ESPACIOS LISTOS PARA COMPLETAR</div>
 </div>
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-px bg-primary/10">
-<article class="bg-surface border border-outline-variant p-6 md:p-gutter min-h-[280px]"><div class="font-label-caps text-label-caps text-on-surface-variant mb-4">PROYECTO 01</div><h3 class="font-headline-md text-headline-md uppercase text-primary mb-4"><span class="bold-font">Cobertura</span> <span class="thin-font">Estratégica</span></h3><p class="text-body-md text-on-surface-variant mb-8">Espacio preparado para describir un caso reciente de prensa, reputación o posicionamiento institucional.</p><div class="text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-on-surface-variant">Cliente / Objetivo / Fecha</div></article>
+                    <div id="projects-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-px bg-primary/10">
+                        <article class="bg-surface border border-outline-variant p-6 md:p-gutter min-h-[280px]"><div class="font-label-caps text-label-caps text-on-surface-variant mb-4">PROYECTO 01</div><h3 class="font-headline-md text-headline-md uppercase text-primary mb-4"><span class="bold-font">Cobertura</span> <span class="thin-font">Estratégica</span></h3><p class="text-body-md text-on-surface-variant mb-8">Espacio preparado para describir un caso reciente de prensa, reputación o posicionamiento institucional.</p><div class="text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-on-surface-variant">Cliente / Objetivo / Fecha</div></article>
 <article class="bg-surface border border-outline-variant p-6 md:p-gutter min-h-[280px]"><div class="font-label-caps text-label-caps text-on-surface-variant mb-4">PROYECTO 02</div><h3 class="font-headline-md text-headline-md uppercase text-primary mb-4"><span class="bold-font">Voceria</span> <span class="thin-font">y Mensaje</span></h3><p class="text-body-md text-on-surface-variant mb-8">Tarjeta editable para documentar una activación, un plan de medios o una estrategia de posicionamiento.</p><div class="text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-on-surface-variant">Cliente / Objetivo / Fecha</div></article>
 <article class="bg-surface border border-outline-variant p-6 md:p-gutter min-h-[280px]"><div class="font-label-caps text-label-caps text-on-surface-variant mb-4">PROYECTO 03</div><h3 class="font-headline-md text-headline-md uppercase text-primary mb-4"><span class="bold-font">Reputacion</span> <span class="thin-font">Activa</span></h3><p class="text-body-md text-on-surface-variant mb-8">Bloque listo para sumar un tercer proyecto con foco en ejecución, alcance y resultados de comunicación.</p><div class="text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-on-surface-variant">Cliente / Objetivo / Fecha</div></article>
 </div>
@@ -312,6 +312,58 @@
         mobileLinks.forEach(link => {
             link.addEventListener('click', closeMobileMenu);
         });
+    </script>
+
+    <!-- Supabase CDN Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script>
+        async function loadDynamicContent() {
+            if (typeof supabaseClient === 'undefined') return;
+
+            try {
+                const { data: projects, error } = await supabaseClient
+                    .from('section_media')
+                    .select('*')
+                    .eq('section', 'pr_projects')
+                    .order('display_order', { ascending: true });
+                
+                if (!error && projects && projects.length > 0) {
+                    const grid = document.getElementById('projects-grid');
+                    if (grid) {
+                        let html = '';
+                        projects.forEach(item => {
+                            const titleParts = (item.title || "").trim().split(" ");
+                            const firstWord = titleParts[0] || "";
+                            const remainingWords = titleParts.slice(1).join(" ") || "";
+                            
+                            html += `
+                                <article class="bg-surface border border-outline-variant p-6 md:p-gutter min-h-[280px] relative overflow-hidden flex flex-col justify-between group">
+                                    <img src="${item.image_url}" class="absolute inset-0 w-full h-full object-cover filter grayscale transition-all duration-500 group-hover:scale-105 group-hover:filter-none" alt="${item.alt_text || ''}"/>
+                                    ${item.show_text ? `
+                                        <div class="absolute inset-0 bg-black/60 z-0 transition-opacity duration-300 group-hover:bg-black/50"></div>
+                                        <div class="relative z-10 flex flex-col justify-between h-full text-white">
+                                            <div>
+                                                <div class="font-label-caps text-[11px] text-white/70 mb-4 tracking-wider">${item.subtitle || ''}</div>
+                                                <h3 class="font-headline-md text-headline-md uppercase text-white mb-4">
+                                                    <span class="bold-font">${firstWord}</span> <span class="thin-font">${remainingWords}</span>
+                                                </h3>
+                                                <p class="text-body-md text-white/80 mb-8">${item.description || ''}</p>
+                                            </div>
+                                            <div class="text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-white/60">${item.extra_info || ''}</div>
+                                        </div>
+                                    ` : ''}
+                                </article>
+                            `;
+                        });
+                        grid.innerHTML = html;
+                    }
+                }
+            } catch (e) {
+                console.error("Error loading dynamic PR projects:", e);
+            }
+        }
+        window.addEventListener('DOMContentLoaded', loadDynamicContent);
     </script>
     <a aria-label="WhatsApp" class="hl-whatsapp-float" href="https://wa.me/595993277464" rel="noopener noreferrer" target="_blank">
         <img alt="" aria-hidden="true" src="images/whatsapp-128-svgrepo-com.svg"/>

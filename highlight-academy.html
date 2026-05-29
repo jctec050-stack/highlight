@@ -102,8 +102,8 @@
 <div class="flex flex-col md:flex-row justify-between items-baseline gap-8 border-b border-on-primary/20 pb-8 mb-12 md:mb-16">
 <h2 class="font-headline-lg text-headline-lg uppercase text-on-primary"><span class="bold-font">NUESTROS</span> <span class="thin-font">CURSOS</span></h2>
 </div>
-<div class="grid grid-cols-1 lg:grid-cols-3 gap-px bg-on-primary/10">
-<article class="bg-primary border border-on-primary/20 p-6 md:p-gutter min-h-[280px] text-on-primary"><h3 class="font-headline-md text-headline-md uppercase text-on-primary mb-4"><span class="bold-font">CURSO 1</span> <span class="thin-font">Reciente</span></h3><p class="text-body-md text-on-primary/80 mb-8">Espacio preparado para sumar una edición, taller o proceso formativo ya ejecutado por esta división.</p><a class="text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-on-primary/70 inline-flex items-center gap-2 hover:text-on-primary transition-colors duration-200" href="https://wa.me/595993277464" rel="noopener noreferrer" target="_blank">Quiero inscribirme <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span></a></article>
+                    <div id="courses-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-px bg-on-primary/10">
+                        <article class="bg-primary border border-on-primary/20 p-6 md:p-gutter min-h-[280px] text-on-primary"><h3 class="font-headline-md text-headline-md uppercase text-on-primary mb-4"><span class="bold-font">CURSO 1</span> <span class="thin-font">Reciente</span></h3><p class="text-body-md text-on-primary/80 mb-8">Espacio preparado para sumar una edición, taller o proceso formativo ya ejecutado por esta división.</p><a class="text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-on-primary/70 inline-flex items-center gap-2 hover:text-on-primary transition-colors duration-200" href="https://wa.me/595993277464" rel="noopener noreferrer" target="_blank">Quiero inscribirme <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span></a></article>
 <article class="bg-primary border border-on-primary/20 p-6 md:p-gutter min-h-[280px] text-on-primary"><h3 class="font-headline-md text-headline-md uppercase text-on-primary mb-4"><span class="bold-font">CURSO 2</span> <span class="thin-font">Intensivo</span></h3><p class="text-body-md text-on-primary/80 mb-8">Tarjeta lista para describir objetivo, participantes, contenidos desarrollados e impacto observado.</p><a class="text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-on-primary/70 inline-flex items-center gap-2 hover:text-on-primary transition-colors duration-200" href="https://wa.me/595993277464" rel="noopener noreferrer" target="_blank">Quiero inscribirme <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span></a></article>
 <article class="bg-primary border border-on-primary/20 p-6 md:p-gutter min-h-[280px] text-on-primary"><h3 class="font-headline-md text-headline-md uppercase text-on-primary mb-4"><span class="bold-font">CURSO 3</span> <span class="thin-font">Aplicada</span></h3><p class="text-body-md text-on-primary/80 mb-8">Bloque preparado para completar con un proyecto adicional y documentar metodología, foco y resultados.</p><a class="text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-on-primary/70 inline-flex items-center gap-2 hover:text-on-primary transition-colors duration-200" href="https://wa.me/595993277464" rel="noopener noreferrer" target="_blank">Quiero inscribirme <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span></a></article>
 </div>
@@ -297,6 +297,67 @@
         mobileLinks.forEach(link => {
             link.addEventListener('click', closeMobileMenu);
         });
+    </script>
+
+    <!-- Supabase CDN Client -->
+    <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
+    <script src="supabase-config.js"></script>
+    <script>
+        async function loadDynamicContent() {
+            if (typeof supabaseClient === 'undefined') return;
+
+            try {
+                const { data: courses, error } = await supabaseClient
+                    .from('section_media')
+                    .select('*')
+                    .eq('section', 'academy_courses')
+                    .order('display_order', { ascending: true });
+                
+                if (!error && courses && courses.length > 0) {
+                    const grid = document.getElementById('courses-grid');
+                    if (grid) {
+                        let html = '';
+                        courses.forEach(item => {
+                            const titleParts = (item.title || "").trim().split(" ");
+                            const firstWord = titleParts[0] || "";
+                            const remainingWords = titleParts.slice(1).join(" ") || "";
+                            
+                            html += `
+                                <article class="bg-primary border border-on-primary/20 p-6 md:p-gutter min-h-[280px] text-on-primary relative overflow-hidden flex flex-col justify-between group">
+                                    <img src="${item.image_url}" class="absolute inset-0 w-full h-full object-cover filter grayscale transition-all duration-500 group-hover:scale-105 group-hover:filter-none" alt="${item.alt_text || ''}"/>
+                                    ${item.show_text ? `
+                                        <div class="absolute inset-0 bg-black/60 z-0 transition-opacity duration-300 group-hover:bg-black/50"></div>
+                                        <div class="relative z-10 flex flex-col justify-between h-full text-on-primary">
+                                            <div>
+                                                <h3 class="font-headline-md text-headline-md uppercase text-on-primary mb-4">
+                                                    <span class="bold-font">${firstWord}</span> <span class="thin-font">${remainingWords}</span>
+                                                </h3>
+                                                <p class="text-body-md text-on-primary/80 mb-8">${item.description || ''}</p>
+                                            </div>
+                                            <a class="text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-on-primary/70 inline-flex items-center gap-2 hover:text-on-primary transition-colors duration-200" href="${item.extra_info || 'https://wa.me/595993277464'}" rel="noopener noreferrer" target="_blank">
+                                                Quiero inscribirme <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span>
+                                            </a>
+                                        </div>
+                                    ` : `
+                                        <!-- If show_text is false, let's still render a small button overlay so students can click to enroll -->
+                                        <div class="absolute inset-0 bg-black/10 hover:bg-black/0 z-0"></div>
+                                        <div class="relative z-10 flex flex-col justify-end h-full">
+                                            <a class="bg-black/85 border-2 border-on-primary/40 px-4 py-2 self-start text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-on-primary hover:bg-black hover:border-on-primary transition-all duration-200 inline-flex items-center gap-2" href="${item.extra_info || 'https://wa.me/595993277464'}" rel="noopener noreferrer" target="_blank">
+                                                Quiero inscribirme <span class="material-symbols-outlined text-[14px]" aria-hidden="true">arrow_forward</span>
+                                            </a>
+                                        </div>
+                                    `}
+                                </article>
+                            `;
+                        });
+                        grid.innerHTML = html;
+                    }
+                }
+            } catch (e) {
+                console.error("Error loading dynamic Academy courses:", e);
+            }
+        }
+        window.addEventListener('DOMContentLoaded', loadDynamicContent);
     </script>
     <a aria-label="WhatsApp" class="hl-whatsapp-float" href="https://wa.me/595993277464" rel="noopener noreferrer" target="_blank">
         <img alt="" aria-hidden="true" src="images/whatsapp-128-svgrepo-com.svg"/>
