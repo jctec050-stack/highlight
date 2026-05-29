@@ -5,6 +5,11 @@
 <meta content="width=device-width, initial-scale=1.0" name="viewport"/>
 <title>Highlight | Agencia Creativa y de Marketing</title>
 <meta name="description" content="Elevamos tu marca a través de marketing, PR y nuestra Academy. Conectamos con tu audiencia real iluminando tu esencia de manera sólida y duradera." />
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="preconnect" href="https://cdn.tailwindcss.com">
+<link rel="preconnect" href="https://cdn.jsdelivr.net">
+<link rel="preconnect" href="https://yzvxkpfpkvinsumenarb.supabase.co">
 <script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
@@ -139,7 +144,7 @@
 <div class="w-full max-w-5xl">
 <div id="hero-carousel-container" aria-label="Carrusel de fotos" class="hl-hero-photo-carousel relative w-full h-[clamp(320px,46vh,520px)] lg:h-[clamp(420px,56vh,640px)]" role="region">
 <div class="hl-hero-photo-carousel__slide absolute inset-0">
-<img alt="Foto del equipo Highlight" class="hl-hero-photo-carousel__img w-full h-full object-contain filter grayscale" decoding="async" loading="lazy" src="images/Foto 1.webp"/>
+<img alt="Foto del equipo Highlight" class="hl-hero-photo-carousel__img w-full h-full object-contain filter grayscale" fetchpriority="high" decoding="async" src="images/Foto 1.webp"/>
 </div>
 <div class="hl-hero-photo-carousel__slide absolute inset-0">
 <img alt="Foto del equipo Highlight" class="hl-hero-photo-carousel__img w-full h-full object-contain filter grayscale" decoding="async" loading="lazy" src="images/foto2.webp"/>
@@ -531,9 +536,10 @@
                     if (container) {
                         let html = '';
                         heroData.forEach((item, index) => {
+                            const isFirst = index === 0;
                             html += `
                                 <div class="hl-hero-photo-carousel__slide absolute inset-0" style="animation-delay: ${index * 5}s; animation-duration: ${heroData.length * 5}s;">
-                                    <img alt="${item.alt_text || 'Foto del equipo Highlight'}" class="hl-hero-photo-carousel__img w-full h-full object-contain filter grayscale" decoding="async" loading="lazy" src="${getOptimizedImageUrl(item.image_url, 1000)}"/>
+                                    <img alt="${item.alt_text || 'Foto del equipo Highlight'}" class="hl-hero-photo-carousel__img w-full h-full object-contain filter grayscale" decoding="async" ${isFirst ? 'fetchpriority="high"' : 'loading="lazy"'} src="${getOptimizedImageUrl(item.image_url, 1000)}"/>
                                 </div>
                             `;
                         });
