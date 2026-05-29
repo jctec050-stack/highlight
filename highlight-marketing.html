@@ -171,7 +171,10 @@
 <div class="px-6 md:px-gutter max-w-container-max mx-auto border-x border-outline-variant py-12 md:py-20 lg:py-24">
 <div class="flex flex-col md:flex-row justify-between items-baseline gap-8 border-b border-primary/20 pb-8 mb-12 md:mb-16">
 <h2 class="font-headline-lg text-headline-lg uppercase text-primary"><span class="bold-font">ULTIMOS</span> <span class="thin-font">PROYECTOS</span></h2>
-<div class="font-label-caps text-label-caps text-on-surface-variant">ESPACIOS LISTOS PARA COMPLETAR</div>
+<a href="https://www.instagram.com/highlightpy/" target="_blank" rel="noopener noreferrer" class="font-label-caps text-label-caps text-primary inline-flex items-center gap-2 hover:opacity-80 active:scale-95 transition-all duration-200">
+    <span>Más Proyectos</span>
+    <span class="material-symbols-outlined text-[18px] leading-none" aria-hidden="true">arrow_forward</span>
+</a>
 </div>
                     <div id="projects-grid" class="grid grid-cols-1 lg:grid-cols-3 gap-px bg-primary/10">
                         <article class="bg-surface border border-outline-variant p-6 md:p-gutter min-h-[280px]"><div class="font-label-caps text-label-caps text-on-surface-variant mb-4">PROYECTO 01</div><h3 class="font-headline-md text-headline-md uppercase text-primary mb-4"><span class="bold-font">Caso</span> <span class="thin-font">Destacado</span></h3><p class="text-body-md text-on-surface-variant mb-8">Espacio preparado para documentar objetivo, alcance, entregables y resultados de un proyecto reciente de esta división.</p><div class="text-footer-tiny font-footer-tiny uppercase tracking-[0.18em] text-on-surface-variant">Cliente / Industria / Fecha</div></article>
@@ -397,7 +400,7 @@
                             
                             html += `
                                 <article class="bg-surface border border-outline-variant p-6 md:p-gutter min-h-[280px] relative overflow-hidden flex flex-col justify-between group">
-                                    <img src="${item.image_url}" class="absolute inset-0 w-full h-full object-cover filter grayscale transition-all duration-500 group-hover:scale-105 group-hover:filter-none" alt="${item.alt_text || ''}"/>
+                                    <img src="${item.image_url}" class="absolute inset-0 w-full h-full object-contain filter grayscale transition-all duration-500 group-hover:scale-105 group-hover:filter-none" alt="${item.alt_text || ''}"/>
                                     ${item.show_text ? `
                                         <div class="absolute inset-0 bg-black/60 z-0 transition-opacity duration-300 group-hover:bg-black/50"></div>
                                         <div class="relative z-10 flex flex-col justify-between h-full text-white">
