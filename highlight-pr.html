@@ -349,7 +349,7 @@
                             
                             html += `
                                 <article class="bg-surface border border-outline-variant p-6 md:p-gutter min-h-[280px] relative overflow-hidden flex flex-col justify-between group">
-                                    <img src="${getOptimizedImageUrl(item.image_url, 600)}" class="absolute inset-0 w-full h-full object-contain filter grayscale transition-all duration-500 group-hover:scale-105 group-hover:filter-none" alt="${item.alt_text || ''}"/>
+                                    <img src="${item.image_url}" class="absolute inset-0 w-full h-full object-contain filter grayscale transition-all duration-500 group-hover:scale-105 group-hover:filter-none" alt="${item.alt_text || ''}"/>
                                     ${item.show_text ? `
                                         <div class="absolute inset-0 bg-black/60 z-0 transition-opacity duration-300 group-hover:bg-black/50"></div>
                                         <div class="relative z-10 flex flex-col justify-between h-full text-white">
