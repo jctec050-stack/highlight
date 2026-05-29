@@ -314,7 +314,14 @@
     <!-- Supabase CDN Client -->
     <script src="https://cdn.jsdelivr.net/npm/@supabase/supabase-js@2"></script>
     <script src="supabase-config.js"></script>
-    <script>
+        function getOptimizedImageUrl(url, width = 800) {
+            if (!url) return '';
+            if (url.includes('supabase.co/storage/v1/object/public/')) {
+                return url.replace('/object/public/', '/render/image/public/') + `?width=${width}&quality=80`;
+            }
+            return url;
+        }
+
         async function loadDynamicContent() {
             if (typeof supabaseClient === 'undefined') return;
 
@@ -336,7 +343,7 @@
                             
                             html += `
                                 <article class="bg-surface border border-outline-variant p-6 md:p-gutter min-h-[280px] relative overflow-hidden flex flex-col justify-between group">
-                                    <img src="${item.image_url}" class="absolute inset-0 w-full h-full object-contain filter grayscale transition-all duration-500 group-hover:scale-105 group-hover:filter-none" alt="${item.alt_text || ''}"/>
+                                    <img src="${getOptimizedImageUrl(item.image_url, 600)}" class="absolute inset-0 w-full h-full object-contain filter grayscale transition-all duration-500 group-hover:scale-105 group-hover:filter-none" alt="${item.alt_text || ''}"/>
                                     ${item.show_text ? `
                                         <div class="absolute inset-0 bg-black/60 z-0 transition-opacity duration-300 group-hover:bg-black/50"></div>
                                         <div class="relative z-10 flex flex-col justify-between h-full text-white">
