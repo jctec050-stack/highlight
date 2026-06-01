@@ -250,7 +250,7 @@ body {
 .hl-service-division-logo__wordmark {
     display: inline-flex;
     align-items: baseline;
-    font-size: clamp(56px, 10vw, 132px);
+    font-size: clamp(32px, 8vw, 132px);
     letter-spacing: -0.06em;
 }
 
