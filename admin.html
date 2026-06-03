@@ -132,6 +132,28 @@
                         </select>
                     </div>
 
+                    <!-- Visibility Controls Card -->
+                    <div class="bg-surface neo-brutalism-card p-6 flex flex-col gap-6">
+                        <div class="border-b border-primary/20 pb-2">
+                            <h3 class="font-bold uppercase text-sm tracking-wider">VISIBILIDAD DE SECCIONES</h3>
+                            <p class="text-[10px] text-primary/60 mt-1">Habilitar u ocultar bloques enteros en el sitio web</p>
+                        </div>
+                        <div class="flex flex-col gap-3">
+                            <div class="flex items-center gap-3 p-3 bg-white border-2 border-primary">
+                                <input type="checkbox" id="toggle-marketing" checked class="w-5 h-5 border-2 border-primary text-black focus:ring-0 cursor-pointer"/>
+                                <label for="toggle-marketing" class="font-label-caps text-xs tracking-wider font-bold cursor-pointer select-none">PROYECTOS DE MARKETING</label>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-white border-2 border-primary">
+                                <input type="checkbox" id="toggle-pr" checked class="w-5 h-5 border-2 border-primary text-black focus:ring-0 cursor-pointer"/>
+                                <label for="toggle-pr" class="font-label-caps text-xs tracking-wider font-bold cursor-pointer select-none">PROYECTOS DE PR</label>
+                            </div>
+                            <div class="flex items-center gap-3 p-3 bg-white border-2 border-primary">
+                                <input type="checkbox" id="toggle-academy" checked class="w-5 h-5 border-2 border-primary text-black focus:ring-0 cursor-pointer"/>
+                                <label for="toggle-academy" class="font-label-caps text-xs tracking-wider font-bold cursor-pointer select-none">CURSOS DE ACADEMY</label>
+                            </div>
+                        </div>
+                    </div>
+
                     <!-- Upload Form Card -->
                     <div class="bg-surface neo-brutalism-card p-6 flex flex-col gap-6">
                         <div class="border-b border-primary/20 pb-2">
@@ -248,6 +270,10 @@
         const emptyState = document.getElementById('empty-state');
         const itemsGrid = document.getElementById('items-grid');
         const btnSubmit = document.getElementById('btn-submit');
+        
+        const toggleMarketing = document.getElementById('toggle-marketing');
+        const togglePr = document.getElementById('toggle-pr');
+        const toggleAcademy = document.getElementById('toggle-academy');
 
         let currentSession = null;
 
@@ -267,6 +293,7 @@
                 if (session) {
                     showDashboard(true);
                     loadSectionData();
+                    loadVisibilitySettings();
                 } else {
                     showLogin(true);
                 }
@@ -699,6 +726,79 @@
                 console.error("Failed to delete file from bucket:", storageErr);
             }
         }
+
+        async function loadVisibilitySettings() {
+            try {
+                const { data, error } = await supabaseClient
+                    .from('section_media')
+                    .select('*')
+                    .eq('section', 'section_visibility');
+                
+                if (error) throw error;
+
+                // Default to true
+                toggleMarketing.checked = true;
+                togglePr.checked = true;
+                toggleAcademy.checked = true;
+
+                if (data && data.length > 0) {
+                    data.forEach(item => {
+                        if (item.title === 'marketing_projects') {
+                            toggleMarketing.checked = item.show_text;
+                        } else if (item.title === 'pr_projects') {
+                            togglePr.checked = item.show_text;
+                        } else if (item.title === 'academy_courses') {
+                            toggleAcademy.checked = item.show_text;
+                        }
+                    });
+                }
+            } catch (err) {
+                console.error("Error loading visibility settings:", err);
+            }
+        }
+
+        async function saveVisibilitySetting(sectionName, enabled) {
+            showLoading(true);
+            try {
+                const { data, error } = await supabaseClient
+                    .from('section_media')
+                    .select('id')
+                    .eq('section', 'section_visibility')
+                    .eq('title', sectionName)
+                    .maybeSingle();
+                
+                if (error) throw error;
+
+                if (data) {
+                    const { error: updateError } = await supabaseClient
+                        .from('section_media')
+                        .update({ show_text: enabled })
+                        .eq('id', data.id);
+                    if (updateError) throw updateError;
+                } else {
+                    const { error: insertError } = await supabaseClient
+                        .from('section_media')
+                        .insert({
+                            section: 'section_visibility',
+                            title: sectionName,
+                            image_url: '', // Evita la restricción de NOT NULL si existe
+                            show_text: enabled,
+                            display_order: 0
+                        });
+                    if (insertError) throw insertError;
+                }
+            } catch (err) {
+                console.error("Error saving visibility setting:", err);
+                const errMsg = err.message || err.details || JSON.stringify(err);
+                alert("Error al guardar la visibilidad: " + errMsg);
+            } finally {
+                showLoading(false);
+            }
+        }
+
+        toggleMarketing.addEventListener('change', (e) => saveVisibilitySetting('marketing_projects', e.target.checked));
+        togglePr.addEventListener('change', (e) => saveVisibilitySetting('pr_projects', e.target.checked));
+        toggleAcademy.addEventListener('change', (e) => saveVisibilitySetting('academy_courses', e.target.checked));
 
         // Start Auth check on load
         window.addEventListener('DOMContentLoaded', () => {
