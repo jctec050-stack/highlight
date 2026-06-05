@@ -570,10 +570,14 @@
                     const container = document.getElementById('hero-carousel-container');
                     if (container) {
                         let html = '';
+                        const isCarousel = heroData.length > 1;
                         heroData.forEach((item, index) => {
                             const isFirst = index === 0;
+                            const inlineStyle = isCarousel
+                                ? `animation-delay: ${index * 5}s; animation-duration: ${heroData.length * 5}s;`
+                                : `animation: none; opacity: 1;`;
                             html += `
-                                <div class="hl-hero-photo-carousel__slide absolute inset-0" style="animation-delay: ${index * 5}s; animation-duration: ${heroData.length * 5}s;">
+                                <div class="hl-hero-photo-carousel__slide absolute inset-0" style="${inlineStyle}">
                                     <img alt="${item.alt_text || 'Foto del equipo Highlight'}" class="hl-hero-photo-carousel__img w-full h-full object-contain filter grayscale" decoding="async" ${isFirst ? 'fetchpriority="high"' : 'loading="lazy"'} src="${getOptimizedImageUrl(item.image_url, 1000)}"/>
                                 </div>
                             `;
