@@ -40,103 +40,10 @@
 
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link rel="preconnect" href="https://cdn.tailwindcss.com">
-<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
 <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@100;300;400;600;700&amp;display=swap" rel="stylesheet"/>
 <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="tailwind.css" rel="stylesheet"/>
 <link href="styles.css?v=2" rel="stylesheet"/>
-<script id="tailwind-config">
-        tailwind.config = {
-            darkMode: "class",
-            theme: {
-                extend: {
-                    "colors": {
-                        "surface-dim": "#dadada",
-                        "on-primary-fixed-variant": "#474747",
-                        "secondary": "#5d5f5f",
-                        "surface": "#f9f9f9",
-                        "primary-container": "#1b1b1b",
-                        "on-tertiary-fixed-variant": "#464747",
-                        "on-secondary-fixed": "#1a1c1c",
-                        "inverse-primary": "#c6c6c6",
-                        "on-surface": "#1a1c1c",
-                        "surface-container-low": "#f3f3f3",
-                        "surface-tint": "#5e5e5e",
-                        "on-error": "#ffffff",
-                        "on-tertiary-container": "#848484",
-                        "primary-fixed": "#e2e2e2",
-                        "surface-container-lowest": "#ffffff",
-                        "surface-container": "#eeeeee",
-                        "on-secondary-container": "#636565",
-                        "error-container": "#ffdad6",
-                        "on-secondary-fixed-variant": "#454747",
-                        "inverse-surface": "#2f3131",
-                        "on-background": "#1a1c1c",
-                        "surface-container-high": "#e8e8e8",
-                        "outline": "#7e7576",
-                        "primary": "#000000",
-                        "surface-container-highest": "#e2e2e2",
-                        "secondary-fixed-dim": "#c6c7c6",
-                        "on-error-container": "#93000a",
-                        "background": "#f9f9f9",
-                        "secondary-fixed": "#e2e3e2",
-                        "secondary-container": "#e2e3e2",
-                        "on-primary": "#ffffff",
-                        "on-primary-container": "#848484",
-                        "surface-variant": "#e2e2e2",
-                        "outline-variant": "#cfc4c5",
-                        "tertiary-fixed": "#e3e2e2",
-                        "inverse-on-surface": "#f1f1f1",
-                        "tertiary-fixed-dim": "#c7c6c6",
-                        "surface-bright": "#f9f9f9",
-                        "on-primary-fixed": "#1b1b1b",
-                        "tertiary": "#000000",
-                        "on-tertiary": "#ffffff",
-                        "primary-fixed-dim": "#c6c6c6",
-                        "on-surface-variant": "#4c4546",
-                        "on-secondary": "#ffffff",
-                        "tertiary-container": "#1b1c1c",
-                        "error": "#ba1a1a",
-                        "on-tertiary-fixed": "#1b1c1c"
-                    },
-                    "borderRadius": {
-                        "DEFAULT": "0.25rem",
-                        "lg": "0.5rem",
-                        "xl": "0.75rem",
-                        "full": "9999px"
-                    },
-                    "spacing": {
-                        "gutter": "32px",
-                        "container-max": "1280px",
-                        "margin-mobile": "24px",
-                        "margin-desktop": "64px",
-                        "unit": "8px",
-                        "section-gap": "160px"
-                    },
-                    "fontFamily": {
-                        "label-caps": ["Montserrat", "sans-serif"],
-                        "footer-tiny": ["Montserrat", "sans-serif"],
-                        "display-xl-mobile": ["Montserrat", "sans-serif"],
-                        "body-md": ["Montserrat", "sans-serif"],
-                        "headline-md": ["Montserrat", "sans-serif"],
-                        "body-lg": ["Montserrat", "sans-serif"],
-                        "headline-lg": ["Montserrat", "sans-serif"],
-                        "display-xl": ["Montserrat", "sans-serif"]
-                    },
-                    "fontSize": {
-                        "label-caps": ["12px", {"lineHeight": "1.0", "letterSpacing": "0.1em", "fontWeight": "700"}],
-                        "footer-tiny": ["10px", {"lineHeight": "1.0", "fontWeight": "400"}],
-                        "display-xl-mobile": ["48px", {"lineHeight": "1.1", "letterSpacing": "-0.02em", "fontWeight": "700"}],
-                        "body-md": ["16px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                        "body-lg": ["18px", {"lineHeight": "1.6", "fontWeight": "400"}],
-                        "headline-md": ["32px", {"lineHeight": "1.3", "fontWeight": "600"}],
-                        "headline-lg": ["48px", {"lineHeight": "1.2", "letterSpacing": "-0.02em", "fontWeight": "600"}],
-                        "display-xl": ["80px", {"lineHeight": "1.1", "letterSpacing": "-0.04em", "fontWeight": "700"}]
-                    }
-                },
-            },
-        }
-    </script>
 </head>
 <body class="bg-background text-on-background font-body-md selection:bg-primary selection:text-on-primary">
 <header class="border-b border-primary bg-surface">
@@ -166,7 +73,7 @@
 <main>
 <section class="bg-surface">
 <div class="relative px-6 md:px-gutter max-w-container-max mx-auto border-x border-outline-variant py-12 md:py-20 lg:py-28 overflow-hidden">
-<img class="absolute inset-0 w-full h-full object-cover grayscale opacity-100" src="images/oficina.JPEG" alt="" aria-hidden="true"/>
+<img class="absolute inset-0 w-full h-full object-cover grayscale opacity-100" src="images/oficina.webp" alt="" aria-hidden="true" fetchpriority="high" decoding="async"/>
 <div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-gutter items-end">
 <div class="w-full lg:col-start-7 lg:col-span-6 text-left bg-black/10 p-5 backdrop-blur-[2px] sm:p-6 md:p-8 lg:-mr-gutter lg:ml-auto lg:rounded-l-[28px] lg:pr-gutter">
 <h1 class="hl-division-hero-title text-[clamp(42px,8vw,92px)] leading-[0.96] text-primary mb-8 [text-shadow:0_2px_12px_rgba(0,0,0,0.55)]"><span class="bold-font relative -top-2 block text-white">No hacemos ruido,</span><span class="thin-font block text-white">iluminamos.</span></h1>
@@ -185,7 +92,7 @@
 </div>
 <div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 lg:gap-20">
 <div class="relative overflow-hidden rounded-[28px] md:rounded-[36px] border border-on-primary/20 aspect-[4/5] bg-primary-container/20">
-    <img class="w-full h-full object-cover grayscale rounded-[28px] md:rounded-[36px]" src="images/nosotros.jpeg" alt="Equipo de Highlight"/>
+    <img class="w-full h-full object-cover grayscale rounded-[28px] md:rounded-[36px]" src="images/nosotros.webp" alt="Equipo de Highlight" loading="lazy" decoding="async"/>
 </div>
 <div class="border-t border-on-primary/20 pt-8 md:pt-10 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-12 flex flex-col justify-center">
     <blockquote class="font-headline-md text-headline-md leading-tight text-on-primary mb-8">
