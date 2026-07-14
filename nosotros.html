@@ -160,21 +160,20 @@
 <a class="font-label-caps text-label-caps text-on-surface-variant opacity-80 h-full flex items-center hover:opacity-100 transition-opacity duration-200" href="index.html#clientes">CLIENTES</a>
 <a class="font-label-caps text-label-caps text-primary border-b-2 border-primary h-full flex items-center hover:opacity-100 transition-opacity duration-200" href="nosotros.html">NOSOTROS</a>
 </nav>
-<a class="font-label-caps text-label-caps text-primary border border-primary px-6 py-2 active:scale-95 transition-all duration-150" href="contacto.html">Contacto</a>
+<a class="hidden md:inline-flex font-label-caps text-label-caps text-primary border border-primary px-6 py-2 active:scale-95 transition-all duration-150" href="contacto.html">Contacto</a>
 </div>
 </header>
 <main>
 <section class="bg-surface">
-<div class="px-6 md:px-gutter max-w-container-max mx-auto border-x border-outline-variant py-12 md:py-20 lg:py-28">
-<div class="grid grid-cols-1 lg:grid-cols-12 gap-6 md:gap-gutter items-end">
-<div class="lg:col-span-8">
-<div class="font-label-caps text-label-caps text-primary mb-6">SOBRE NOSOTROS</div>
-<h1 class="hl-division-hero-title text-primary mb-8"><span class="bold-font block">No hacemos ruido,</span><span class="thin-font block">iluminamos.</span></h1>
-<p class="font-body-lg text-body-lg max-w-3xl text-on-surface-variant">
+<div class="relative px-6 md:px-gutter max-w-container-max mx-auto border-x border-outline-variant py-12 md:py-20 lg:py-28 overflow-hidden">
+<img class="absolute inset-0 w-full h-full object-cover grayscale opacity-100" src="images/oficina.JPEG" alt="" aria-hidden="true"/>
+<div class="relative grid grid-cols-1 lg:grid-cols-12 gap-8 md:gap-gutter items-end">
+<div class="w-full lg:col-start-7 lg:col-span-6 text-left bg-black/10 p-5 backdrop-blur-[2px] sm:p-6 md:p-8 lg:-mr-gutter lg:ml-auto lg:rounded-l-[28px] lg:pr-gutter">
+<h1 class="hl-division-hero-title text-[clamp(42px,8vw,92px)] leading-[0.96] text-primary mb-8 [text-shadow:0_2px_12px_rgba(0,0,0,0.55)]"><span class="bold-font relative -top-2 block text-white">No hacemos ruido,</span><span class="thin-font block text-white">iluminamos.</span></h1>
+<p class="font-body-lg text-body-lg max-w-3xl text-white [text-shadow:0_2px_10px_rgba(0,0,0,0.5)]">
                             Creemos que destacar no es cuestión de volumen, sino de claridad. Por eso trabajamos para que cada proyecto encuentre su luz propia, un diferencial auténtico que lo posicione con fuerza en el mercado.
                         </p>
 </div>
-<div class="lg:col-span-4 lg:border-l lg:border-primary lg:pl-gutter"></div>
 </div>
 </div>
 </section>
@@ -184,17 +183,11 @@
 <div class="flex flex-col md:flex-row justify-between items-baseline gap-8 border-b border-on-primary/20 pb-8 mb-12 md:mb-16">
 <h2 class="font-headline-lg text-headline-lg uppercase"><span class="bold-font">NUESTRA</span> <span class="thin-font">FILOSOFIA</span></h2>
 </div>
-<div class="grid grid-cols-1 lg:grid-cols-2 gap-12 md:gap-20">
-<div>
-    <h3 class="font-headline-md text-headline-md mb-6"><span class="bold-font">Claridad</span> <span class="thin-font">sobre volumen</span></h3>
-    <p class="text-body-md text-on-primary/70 leading-relaxed mb-6">
-        En un mundo donde las marcas compiten por llamar la atención gritando, en Highlight elegimos un camino diferente. Nos mueve la convicción de que cuando una marca logra resaltar desde su esencia, conecta más profundo, inspira más fuerte y crece de manera sostenible.
-    </p>
-    <p class="text-body-md text-on-primary/70 leading-relaxed">
-        No construimos marcas para el momento, diseñamos estrategias, reputación y conocimiento que perduren en el tiempo, asegurando que cada cliente que confía en nosotros encuentre su luz propia.
-    </p>
+<div class="grid grid-cols-1 lg:grid-cols-2 gap-10 md:gap-16 lg:gap-20">
+<div class="relative overflow-hidden rounded-[28px] md:rounded-[36px] border border-on-primary/20 aspect-[4/5] bg-primary-container/20">
+    <img class="w-full h-full object-cover grayscale rounded-[28px] md:rounded-[36px]" src="images/nosotros.jpeg" alt="Equipo de Highlight"/>
 </div>
-<div class="border-l border-on-primary/20 pl-8 md:pl-12 flex flex-col justify-center">
+<div class="border-t border-on-primary/20 pt-8 md:pt-10 lg:border-t-0 lg:border-l lg:pt-0 lg:pl-12 flex flex-col justify-center">
     <blockquote class="font-headline-md text-headline-md leading-tight text-on-primary mb-8">
         "Una agencia de marketing debería construir y prometer <span class="bold-font">perspectiva de valor</span>."
     </blockquote>
@@ -233,7 +226,7 @@
 <div class="flex flex-col md:flex-row justify-between items-baseline gap-8 border-b border-on-primary/20 pb-8 mb-12 md:mb-16">
 <h2 class="font-headline-lg text-headline-lg uppercase"><span class="bold-font">NUESTROS</span> <span class="thin-font">VALORES</span></h2>
 </div>
-<div class="grid grid-cols-1 md:grid-cols-3 border-t border-l border-on-primary/20">
+<div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 border-t border-l border-on-primary/20">
 <div class="border-r border-b border-on-primary/20 p-6 md:p-gutter min-h-[220px]">
     <h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Claridad</span></h3>
     <p class="text-body-md text-on-primary/70">Comunicación directa, transparente y sin rodeos. Creemos que la verdad y la simplicidad son las herramientas más poderosas del marketing.</p>
@@ -242,7 +235,7 @@
     <h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Excelencia</span></h3>
     <p class="text-body-md text-on-primary/70">Un compromiso inquebrantable con la calidad en cada entrega, diseño, estrategia o plan de estudios que desarrollamos.</p>
 </div>
-<div class="border-r border-b border-on-primary/20 p-6 md:p-gutter min-h-[220px]">
+<div class="border-r border-b border-on-primary/20 p-6 md:p-gutter min-h-[220px] sm:col-span-2 lg:col-span-1">
     <h3 class="font-headline-md text-headline-md uppercase mb-4"><span class="bold-font">Autenticidad</span></h3>
     <p class="text-body-md text-on-primary/70">No copiamos fórmulas. Buscamos la esencia real de cada proyecto para construir marcas que resalten por lo que verdaderamente son.</p>
 </div>
@@ -252,19 +245,19 @@
 
 <section class="bg-surface">
 <div class="px-6 md:px-gutter max-w-container-max mx-auto py-12 md:py-20 lg:py-24">
-<div class="border border-outline-variant p-6 md:p-gutter flex flex-col lg:flex-row lg:items-end lg:justify-between gap-8">
-<div>
+<div class="border border-outline-variant p-6 md:p-gutter flex flex-col lg:flex-row lg:items-end lg:justify-between gap-6 md:gap-8">
+<div class="max-w-2xl">
 <div class="font-label-caps text-[10px] font-bold tracking-[0.12em] leading-none uppercase text-on-surface-variant opacity-60 mb-2 inline-block">SIGUIENTE PASO</div>
 <h2 class="font-headline-lg text-headline-lg uppercase mb-4 text-primary"><span class="bold-font">Hablemos</span> <span class="thin-font">de tu proyecto</span></h2>
 <p class="text-body-md text-on-surface-variant max-w-2xl">Si compartes nuestra visión y buscas un aliado para iluminar tu marca, estamos listos para empezar.</p>
 </div>
-<a class="font-label-caps text-label-caps border border-primary text-primary px-8 py-4 inline-flex items-center gap-2 hover:bg-primary hover:text-on-primary transition-colors duration-300" href="contacto.html">Ir a contacto <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span></a>
+<a class="w-full justify-center sm:w-auto font-label-caps text-label-caps border border-primary text-primary px-8 py-4 inline-flex items-center gap-2 hover:bg-primary hover:text-on-primary transition-colors duration-300" href="contacto.html">Ir a contacto <span class="material-symbols-outlined text-[18px]" aria-hidden="true">arrow_forward</span></a>
 </div>
 </div>
 </section>
 </main>
 <footer class="w-full py-12 bg-primary text-on-primary border-t border-on-primary/20 shrink-0">
-<div class="grid grid-cols-1 md:grid-cols-12 gap-gutter px-6 md:px-gutter max-w-container-max mx-auto items-start">
+<div class="grid grid-cols-1 md:grid-cols-12 gap-10 md:gap-gutter px-6 md:px-gutter max-w-container-max mx-auto items-start">
 <div class="md:col-span-6">
 <div class="text-headline-md font-bold text-on-primary flex items-baseline mb-6">
 <span class="bold-font">high</span><span class="thin-font">light</span>
@@ -311,14 +304,14 @@
 </li>
 </ul>
 </div>
-<div class="md:col-span-12 border-t border-on-primary/10 mt-8 pt-8 flex flex-col md:flex-row justify-between items-center gap-4">
-<span class="text-footer-tiny font-footer-tiny text-on-primary opacity-60">
+<div class="md:col-span-12 border-t border-on-primary/10 mt-8 pt-8 flex flex-col md:flex-row justify-between items-start md:items-center gap-4">
+<span class="text-footer-tiny font-footer-tiny text-on-primary opacity-60 text-center md:text-left">
 © 2023 HIGHLIGHT. TODOS LOS DERECHOS RESERVADOS. ·
 <a class="hover:opacity-100" href="https://nexabyte-portafolio.vercel.app/" rel="noopener noreferrer" target="_blank">DESARROLLADO POR <span class="underline underline-offset-4">NEXABYTE</span></a>
 </span>
-<div class="flex gap-8">
-<a class="text-footer-tiny font-footer-tiny text-on-primary opacity-60 hover:opacity-100 uppercase" href="privacy-policy.html">POLITICA DE PRIVACIDAD</a>
-<a class="text-footer-tiny font-footer-tiny text-on-primary opacity-60 hover:opacity-100 uppercase" href="terms-and-conditions.html">TERMINOS Y CONDICIONES</a>
+<div class="w-full md:w-auto flex flex-col sm:flex-row gap-3 sm:gap-8 items-center md:justify-end">
+<a class="text-footer-tiny font-footer-tiny text-on-primary opacity-60 hover:opacity-100 uppercase text-center" href="privacy-policy.html">POLITICA DE PRIVACIDAD</a>
+<a class="text-footer-tiny font-footer-tiny text-on-primary opacity-60 hover:opacity-100 uppercase text-center" href="terms-and-conditions.html">TERMINOS Y CONDICIONES</a>
 </div>
 </div>
 </div>

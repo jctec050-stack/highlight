@@ -240,6 +240,14 @@ body {
     letter-spacing: -0.06em;
 }
 
+@media (max-width: 767px) {
+    .hl-division-hero-title {
+        font-size: clamp(40px, 14vw, 56px);
+        line-height: 0.96;
+        letter-spacing: -0.05em;
+    }
+}
+
 .hl-service-division-logo {
     display: inline-flex;
     flex-direction: column;
