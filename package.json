@@ -9,6 +9,8 @@
     "tailwindcss": "^4.3.2"
   },
   "scripts": {
+    "start": "node local-server.js",
+    "dev": "node local-server.js",
     "build:css": "tailwindcss -i ./tailwind-input.css -o ./tailwind.css --minify"
   }
 }
