@@ -16,8 +16,19 @@
     font-size: 16px;
 }
 
+html, body {
+    max-width: 100%;
+    overflow-x: hidden;
+}
+
 body {
-    min-height: max(884px, 100dvh);
+    min-height: 100dvh;
+}
+
+@media (min-width: 1024px) {
+    body {
+        min-height: max(884px, 100dvh);
+    }
 }
 
 .hl-whatsapp-float {
@@ -172,12 +183,10 @@ body {
 
 .hl-pr-logo__high {
     display: inline-block;
-    width: 84px;
 }
 
 .hl-pr-logo__light {
     display: inline-block;
-    width: 71px;
 }
 
 .hl-pr-logo__tag {
@@ -199,13 +208,6 @@ body {
     line-height: 1;
 }
 
-.hl-pr-logo--hero .hl-pr-logo__high {
-    width: clamp(116px, 11vw, 246px);
-}
-
-.hl-pr-logo--hero .hl-pr-logo__light {
-    width: clamp(98px, 9.5vw, 208px);
-}
 
 .hl-pr-logo--hero .hl-pr-logo__tag {
     margin-left: clamp(10px, 1.2vw, 18px);
@@ -668,12 +670,6 @@ header a[href="contacto.html"]:active {
     .hl-pr-logo--hero .hl-pr-logo__high,
     .hl-pr-logo--hero .hl-pr-logo__light {
         font-size: clamp(38px, 8.5vw, 48px) !important;
-    }
-    .hl-pr-logo--hero .hl-pr-logo__high {
-        width: 80px !important;
-    }
-    .hl-pr-logo--hero .hl-pr-logo__light {
-        width: 70px !important;
     }
     .hl-pr-logo--hero .hl-pr-logo__tag {
         font-size: 20px !important;
